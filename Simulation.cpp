@@ -44,7 +44,7 @@ struct WaitingPassengers {
 };
 
 // the struct to depict the decision a passenger will make at a situation.
-struct Policy {
+struct Policy { // itenerary
 	int direction;
 	int transferStation;
 	int transferDirection;
@@ -77,31 +77,20 @@ class Station {
 public:
 	int ID;					// station ID
 	int lineID;				// line ID
-	int nextStationID[2];	// next station's ID in both directions. if this is terminal, next is -1
-	int travelTime_in[2];	// travel time from the previous station to this one.
-	int travelTime_out[2];	// travel time from this station to the next one.
+	// int nextStationID[2];	// next station's ID in both directions. if this is terminal, next is -1
+	// int travelTime_in[2];	// travel time from the previous station to this one.
+	// int travelTime_out[2];	// travel time from this station to the next one.
 	bool isTerminal[2];		// if the station is the terminal station
 	bool isTransfer;		// if the station is a transfer station
 	//transfer_list transferList;	// store the stations share the same location but have different IDs.
 	Q queue[2];				// passenger queues for both directions
 	double avg_inStationTime[2];	//avg arriving time of passengers in the queue, used for delay calculation
 
-	Station(int ID, int lineID, int nextID0, int nextID1, int travelTime_in0, int travelTime_in1,\
-	 	int travelTime_out0, int travelTime_out1, bool isTerminalInDir0, bool isTerminalInDir1,\
-		int terminalDirection = 0) : ID(ID), lineID(lineID), isTransfer(false) {
-		nextStationID[0] = nextID0;
-		nextStationID[1] = nextID1;
-		travelTime_in[0] = travelTime_in0;
-		travelTime_in[1] = travelTime_in1;
-		travelTime_out[0] = travelTime_out0;
-		travelTime_out[1] = travelTime_out1;
+	Station(int ID, int lineID, bool isTerminalInDir0, bool isTerminalInDir1, bool isTransfer=false) : \
+	ID(ID), lineID(lineID), isTransfer(isTransfer) {
 		isTerminal[0] = isTerminalInDir0;
 		isTerminal[1] = isTerminalInDir1;
 	}
-
-	// void setTransfer() {
-	// 	isTransfer = true;
-	// }
 
 	int getQueueNum(int direction) {
 		return queue[direction].size();
@@ -110,14 +99,17 @@ public:
 
 struct Train {
 	// the information about the train
+	int trainID;			// the unique ID of a train from a terminal to the other terminal
 	int lineID;				// the ID of the line the train in on
 	int arrivingStation;	// the ID of the station the train arrives in the event
 	int direction;			// 0 or 1, consistent with the map info
 	int capacity;			// the remaining space on the train
+	double lastTime;		// the time that the train set out at last station,
+							// if the train is being initialized, set 'lastTime' to be the set out time at the starting station
 	int destination[TOTAL_STATIONS] = { 0 };// numbers of passengers heading for each station
 	int passengerNum;		// total number of passengers on the train
-	Train(int lineID, int direction, int nextStation) : lineID(lineID), direction(direction), passengerNum(0),\
-		arrivingStation(nextStation), capacity(DEFAULT_CAPACITY) {}
+	Train(int trainID, int lineID, int direction, int arrivingStation, double startTime, int capacity=DEFAULT_CAPACITY) : trainID(trainID), lineID(lineID), direction(direction), passengerNum(0),\
+		arrivingStation(arrivingStation), lastTime(startTime), capacity(capacity) {}
 };
 
 //Simulation Class
@@ -131,26 +123,32 @@ public:
 	
 	int policy_num[TOTAL_STATIONS][TOTAL_STATIONS];
 	// the matrix stores the num of the optimal paths from station i to station j
+
 	int policy[TOTAL_STATIONS][TOTAL_STATIONS][MAX_POLICY_NUM];
 	// the matrix stores the optimal policy--what is the next station to go if the passenger is traveling
 	// from station i to station j
 	// considering that there may be several optimal solutions between two stations, at most MAX_POLICY_NUM 
 	// policies can be stored here
-	int direction[TOTAL_STATIONS][TOTAL_STATIONS];
+
+	int directions[TOTAL_STATIONS][TOTAL_STATIONS];
 	// return the direction from station i to station j
 	// if they are not on the same line, return -1
+
 	double transferTime[TOTAL_STATIONS][TOTAL_STATIONS];
 	// this matrix stores the transfer time between two transfer stations.
-	// if loop, value is 0
-	double headway[TOTAL_STATIONS];
-	// if the headway is fixed for each station, it will be stored here. Namely, the frequency of new 
-	// trains setting off.
+
 	int lineIDOfStation[TOTAL_STATIONS];
 	// an array to store the ID of the line that the station belongs to
-	bool isSameStation[TOTAL_STATIONS][TOTAL_STATIONS];
-	// used to check if a passenger has arrived at his/her destination
-	// input: arriving station, destination
-	// output: true if the passeneger can transfer between the two stations or they are just the same station.
+
+	std::vector<std::vector<int>> startTrainInfo;
+	// a 2-d matrix to store the information of train starting from the starting station, for reset().
+
+	std::vector<std::vector<double>> arrivalTime;
+	// a 2-d matrix to store the arrival time at each station (except the starting station) of each trainID
+
+	std::vector<std::vector<int>> arrivalStationID;
+	// a 2-d matrix to store the arriving station's ID of each arrival recorded in 'arrivalTime' matrix above
+
 	Station* stations;
 	// an array to store all the stations
 
@@ -159,11 +157,10 @@ public:
 	}
 
 	// to start work from here
-	void init(int** policy_direction, int** policy_change, double** transfer_time, double* Headway);
-		// load the initial state
+	void init();	// load the initial state from the data files.
 	Report run();	// return a pointer of several doubles,
 					// including time, totalTravelTime and totalDelay.
-	void reset();	// reload the initial state
+	void reset();	// reset to the initial state using the loaded data.
 	void addPassengers(int from, int to, int num);	// add passengers right now
 	void addEvent(Event newevent) {
 		EventQueue.push(newevent);
@@ -173,11 +170,16 @@ public:
 protected:
 	//Priority Queue for the events
 	std::priority_queue < Event, std::vector<Event, std::allocator<Event> >, EventCompare > EventQueue;
+	int totalTrainNum;		// record the total number of trains, important
+	int* time_iter;			// iterator to iterate the arrivalTime matrix
+	int* stationID_iter;	// iterator to iterate the arrivalStationID matrix
 	
 	Report report();	// return the system information
 	bool isOnSameLine(int station, int line);	// return true if the station is in that line 
 												// or the station's transfer station is in the line
 	Policy getPolicy(int from, int to, int lineID);	// return the optimal traveling policy
+	double getNextArrivalTime(int trainID);		// query the arrival time for each train
+	int getNextArrivalStationID(int trainID);	// query the arrival station for each train
 
 };
 
@@ -201,18 +203,6 @@ Report Simulation::report() {
 	return result;
 }
 
-// ################## abandoned ####################
-// // return if the destination station is in the same line of the train, which means no transfer needed
-// bool Simulation::isOnSameLine(int station, int line){
-// 	int i = 0;
-// 	while (lineIDOfStation[station][i] >= 0){
-// 		if (lineIDOfStation[station][i] == line)
-// 			return true;
-// 		i++;
-// 	}
-// 	return false;
-// }
-
 // Run Simulation
 Report Simulation::run() {
 
@@ -228,6 +218,7 @@ Report Simulation::run() {
 			if (nextevent.type == ARRIVAL) {
 
 				Train* train = nextevent.train;
+				int trainID = train->trainID;
 				int station = train->arrivingStation;
 				int direction = train->direction;
 				int& capacity = train->capacity;
@@ -236,7 +227,7 @@ Report Simulation::run() {
 				int lineID = train->lineID;
 
 				// calculate travel time and passenger get off
-				totalTravelTime += passengerNum * stations[station].travelTime_in[direction];
+				totalTravelTime += passengerNum * (time - train->lastTime);
 				passengerNum -= destination[station];
 				capacity += destination[station];
 				num_arrived += destination[station];
@@ -246,12 +237,13 @@ Report Simulation::run() {
 				if (stations[station].isTransfer) {
 					// iterate the destination table of the train
 					// ################# can be improved here ##################
-					// table iteration is slow, other structures can be considered 
+					// 1.table iteration is slow, other structures can be considered
+					// 2.all the transfer OD can be put into the queue at once! 
 					for (int dest_station = 0; dest_station < TOTAL_STATIONS; dest_station++) {
 						if (destination[dest_station] > 0) {
 							// first, find the passengers whose trip is finished ( not at this station,
 							// but at its transfer station ), finish them!
-							if (isSameStation[station][dest_station]){
+							if (transferTime[station][dest_station] >= 0.0){		// try to use transfer time to do it...
 								int off_num = destination[dest_station];
 								passengerNum -= destination[dest_station];
 								capacity += destination[dest_station];
@@ -297,27 +289,6 @@ Report Simulation::run() {
 									EventQueue.push(newEvent);
 								}
 								
-
-								//######## abandoned ###########
-								//// get which station to go to and which direction to take
-								//int transfer_stationID = stationPolicy_transfer[station][dest_station];
-								//int transfer_direction = stationPolicy_direction[transfer_stationID][dest_station];
-								//Station* transfer_station = &stations[transfer_stationID];
-
-								//// push the transfer passengers into the queue, update avg_inStationTime
-								//double queue_len = (double)transfer_station->queue[transfer_direction].size;
-								//double new_len = queue_len + (double)num_transfer;
-								//transfer_station->avg_inStationTime[transfer_direction]\
-								//	= (queue_len * transfer_station->avg_inStationTime[transfer_direction]\
-								//	+ (double)num_transfer * time) / new_len;
-								//// ######### now here we don't consider the transfer time between stations
-								//WaitingPassengers passengers;
-
-								////passengers.arrivingTime = time;
-								//passengers.destination = dest_station;
-								//passengers.numPassengers = num_transfer;
-								//transfer_station->queue[transfer_direction].push(passengers);
-								//###################################
 							}
 						}
 					}
@@ -354,18 +325,19 @@ Report Simulation::run() {
 					}
 
 					// set up a new arrival event
-					nextevent.time = time + stations[station].travelTime_out[direction];
-					train->arrivingStation = stations[station].nextStationID[direction];
+					// rebuild with a new function to get the next arrival time and next station!!!!!!!!!!
+					nextevent.time = getNextArrivalTime(trainID);
+					train->arrivingStation = getNextArrivalStationID(trainID);
 					EventQueue.push(nextevent);
 
 					// if the station is the first station, start a new train
-					if (stations[station].isTerminal[1 - direction]) {
-						Event newEvent(time + headway[station], ARRIVAL);
-						Train* newTrain = new Train(lineID, direction, station);
-						// if the trains' capacity is different in different lines, it can be set here.
-						newEvent.train = newTrain;
-						EventQueue.push(newEvent);
-					}
+					// if (stations[station].isTerminal[1 - direction]) {
+					// 	Event newEvent(time + headway[station], ARRIVAL);
+					// 	Train* newTrain = new Train(lineID, direction, station);
+					// 	// if the trains' capacity is different in different lines, it can be set here.
+					// 	newEvent.train = newTrain;
+					// 	EventQueue.push(newEvent);
+					// }				// now we use a table to init all the trains at once
 
 				}
 				// if is terminal, delete the train
@@ -385,6 +357,7 @@ Report Simulation::run() {
 				return report();
 			}
 			else if (nextevent.type == NEW_OD) {
+				// very slow!!!!!!!!!!!!!!!!! better using more compact way
 				// add new ODs to the corresponding stations' queues
 				int** OD = nextevent.OD;
 				for (int from = 0; from < TOTAL_STATIONS; from++) {
@@ -395,7 +368,7 @@ Report Simulation::run() {
 						}
 					}
 				}
-
+				/////////also need to delete the OD!!!!!!!!!!!!!!
 				delete &nextevent;
 			}
 			else if (nextevent.type == TRANSFER) {
@@ -404,7 +377,7 @@ Report Simulation::run() {
 				int to   = nextevent.OD[0][1];
 				int num  = nextevent.OD[0][2];
 				addPassengers(from, to, num);
-
+				/////////also need to delete the OD!!!!!!!!!!!!!!
 				delete& nextevent;
 			}
 
@@ -439,13 +412,13 @@ Policy Simulation::getPolicy(int from, int to, int lineID) {
 			nextStation = policy[from][to][rand() % num];
 		}
 	}
-	dir = direction[from][nextStation];
+	dir = directions[from][nextStation];
 	if (dir != -1) {
 		Policy result = {dir, -1, -1};
 		return result;
 	}
 	else {
-		dir = direction[nextStation][to];
+		dir = directions[nextStation][to];
 		Policy result = {-1, nextStation, dir};
 		return result;
 	}
@@ -484,6 +457,48 @@ void Simulation::addPassengers(int from, int to, int num) {
 }
 
 // this is the function to initalize the Simulation and load the data
-void Simulation::init(int** policy_direction, int** policy_change, double** transfer_time, double* Headway) {
+void Simulation::init() {
+	// first load the data
+	
+	// init the iterators
+	totalTrainNum
+	time_iter = new int[totalTrainNum];
+	stationID_iter = new int[totalTrainNum];
+
+	// reset using the loaded data
+	reset();
+}
+
+void Simulation::reset() {
+	time = 0.0;
+	totalTravelTime = 0.0;
+	totalDelay = 0.0;
+	num_departed = 0;
+	num_arrived = 0;
+
+	// clear the events
+	while(!EventQueue.empty())
+		EventQueue.pop();
+
+	// reset the iterators
+	for(int i = 0; i < totalTrainNum; i++){
+		time_iter[i] = 0;
+		stationID_iter[i] = 0;
+	}
+
+	// renew the start out trains
+	for(int i = 0; i < totalTrainNum; i++){
+		int trainID = startTrainInfo[i][0];
+		int startingStationID = startTrainInfo[i][1];
+		int lineID = startTrainInfo[i][2];
+		int direction = startTrainInfo[i][3];
+		int capacity = startTrainInfo[i][4];
+		double startTime = startTrainInfo[i][5];
+
+		Train newTrain(trainID, lineID, direction, startingStationID, startTime, capacity);
+
+	}
+
+	// renew the stations (queues)
 
 }
