@@ -7,7 +7,7 @@
 #include <queue>
 #include <vector>
 
-#define TOTAL_STATIONS 200
+#define TOTAL_STATIONS 3
 #define DEFAULT_CAPACITY 300
 #define WARMUP_PERIOD 3600
 #define TOTAL_SIMULATION_TIME 7200
@@ -77,12 +77,8 @@ class Station {
 public:
 	int ID;					// station ID
 	int lineID;				// line ID
-	// int nextStationID[2];	// next station's ID in both directions. if this is terminal, next is -1
-	// int travelTime_in[2];	// travel time from the previous station to this one.
-	// int travelTime_out[2];	// travel time from this station to the next one.
 	bool isTerminal[2];		// if the station is the terminal station
 	bool isTransfer;		// if the station is a transfer station
-	//transfer_list transferList;	// store the stations share the same location but have different IDs.
 	Q queue[2];				// passenger queues for both directions
 	double avg_inStationTime[2];	//avg arriving time of passengers in the queue, used for delay calculation
 
@@ -108,7 +104,9 @@ struct Train {
 							// if the train is being initialized, set 'lastTime' to be the set out time at the starting station
 	int destination[TOTAL_STATIONS] = { 0 };// numbers of passengers heading for each station
 	int passengerNum;		// total number of passengers on the train
-	Train(int trainID, int lineID, int direction, int arrivingStation, double startTime, int capacity=DEFAULT_CAPACITY) : trainID(trainID), lineID(lineID), direction(direction), passengerNum(0),\
+
+	Train(int trainID, int lineID, int direction, int arrivingStation, double startTime, int capacity=DEFAULT_CAPACITY) : \
+		trainID(trainID), lineID(lineID), direction(direction), passengerNum(0),\
 		arrivingStation(arrivingStation), lastTime(startTime), capacity(capacity) {}
 };
 
@@ -460,8 +458,9 @@ void Simulation::addPassengers(int from, int to, int num) {
 void Simulation::init() {
 	// first load the data
 	
+	
 	// init the iterators
-	totalTrainNum
+	totalTrainNum = 26;
 	time_iter = new int[totalTrainNum];
 	stationID_iter = new int[totalTrainNum];
 
@@ -476,7 +475,7 @@ void Simulation::reset() {
 	num_departed = 0;
 	num_arrived = 0;
 
-	// clear the events
+	// clear the events, maybe a bit slow
 	while(!EventQueue.empty())
 		EventQueue.pop();
 
@@ -495,10 +494,22 @@ void Simulation::reset() {
 		int capacity = startTrainInfo[i][4];
 		double startTime = startTrainInfo[i][5];
 
-		Train newTrain(trainID, lineID, direction, startingStationID, startTime, capacity);
-
+		Train* newTrain = new Train(trainID, lineID, direction, startingStationID, startTime, capacity);
+		Event newEvent(startTime, ARRIVAL);
+		newEvent.train = newTrain;
+		EventQueue.push(newEvent);
 	}
 
 	// renew the stations (queues)
+	for(int i = 0; i < TOTAL_STATIONS; i++){
+		// reset the queues, maybe a bit slow
+		while(!stations[i].queue[0].empty())
+			stations[i].queue[0].pop();
+		while(!stations[i].queue[1].empty())
+			stations[i].queue[1].pop();
 
+		// reset avg_inStationTime
+		stations[i].avg_inStationTime[0] = 0.0;
+		stations[i].avg_inStationTime[1] = 0.0;
+	}
 }
