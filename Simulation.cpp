@@ -3,9 +3,12 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include <fstream>
 #include <math.h>
 #include <queue>
 #include <vector>
+#include <string>
+#include "readcsv.h"
 
 #define TOTAL_STATIONS 3
 #define DEFAULT_CAPACITY 300
@@ -82,8 +85,8 @@ public:
 	Q queue[2];				// passenger queues for both directions
 	double avg_inStationTime[2];	//avg arriving time of passengers in the queue, used for delay calculation
 
-	Station(int ID, int lineID, bool isTerminalInDir0, bool isTerminalInDir1, bool isTransfer=false) : \
-	ID(ID), lineID(lineID), isTransfer(isTransfer) {
+	Station(int ID, int lineID, bool isTerminalInDir0, bool isTerminalInDir1, bool isTransfer = false) : \
+		ID(ID), lineID(lineID), isTransfer(isTransfer) {
 		isTerminal[0] = isTerminalInDir0;
 		isTerminal[1] = isTerminalInDir1;
 	}
@@ -105,8 +108,8 @@ struct Train {
 	int destination[TOTAL_STATIONS] = { 0 };// numbers of passengers heading for each station
 	int passengerNum;		// total number of passengers on the train
 
-	Train(int trainID, int lineID, int direction, int arrivingStation, double startTime, int capacity=DEFAULT_CAPACITY) : \
-		trainID(trainID), lineID(lineID), direction(direction), passengerNum(0),\
+	Train(int trainID, int lineID, int direction, int arrivingStation, double startTime, int capacity = DEFAULT_CAPACITY) : \
+		trainID(trainID), lineID(lineID), direction(direction), passengerNum(0), \
 		arrivingStation(arrivingStation), lastTime(startTime), capacity(capacity) {}
 };
 
@@ -118,7 +121,7 @@ public:
 	double totalDelay;		// the off-train delay, namely the waiting time in the station queue
 	int num_departed;		// number of passengers put into the system
 	int num_arrived;		// number of passengers arrived at the destination
-	
+
 	int policy_num[TOTAL_STATIONS][TOTAL_STATIONS];
 	// the matrix stores the num of the optimal paths from station i to station j
 
@@ -163,7 +166,7 @@ public:
 	void addEvent(Event newevent) {
 		EventQueue.push(newevent);
 	}
-	
+
 
 protected:
 	//Priority Queue for the events
@@ -171,7 +174,7 @@ protected:
 	int totalTrainNum;		// record the total number of trains, important
 	int* time_iter;			// iterator to iterate the arrivalTime matrix
 	int* stationID_iter;	// iterator to iterate the arrivalStationID matrix
-	
+
 	Report report();	// return the system information
 	bool isOnSameLine(int station, int line);	// return true if the station is in that line 
 												// or the station's transfer station is in the line
@@ -208,7 +211,8 @@ Report Simulation::run() {
 		if (EventQueue.empty()) {
 			std::cout << "Empty Queue!" << std::endl;
 			return report();
-		}else {
+		}
+		else {
 			Event nextevent = EventQueue.top();
 			EventQueue.pop();
 			time = nextevent.time;
@@ -241,7 +245,7 @@ Report Simulation::run() {
 						if (destination[dest_station] > 0) {
 							// first, find the passengers whose trip is finished ( not at this station,
 							// but at its transfer station ), finish them!
-							if (transferTime[station][dest_station] >= 0.0){		// try to use transfer time to do it...
+							if (transferTime[station][dest_station] >= 0.0) {		// try to use transfer time to do it...
 								int off_num = destination[dest_station];
 								passengerNum -= destination[dest_station];
 								capacity += destination[dest_station];
@@ -286,7 +290,7 @@ Report Simulation::run() {
 									newEvent.OD = ODpair;
 									EventQueue.push(newEvent);
 								}
-								
+
 							}
 						}
 					}
@@ -350,7 +354,7 @@ Report Simulation::run() {
 			}
 			else if (nextevent.type == SUSPEND) {
 				// return immediate cost for the RL model to make decision
-				delete &nextevent;
+				delete& nextevent;
 
 				return report();
 			}
@@ -367,13 +371,13 @@ Report Simulation::run() {
 					}
 				}
 				/////////also need to delete the OD!!!!!!!!!!!!!!
-				delete &nextevent;
+				delete& nextevent;
 			}
 			else if (nextevent.type == TRANSFER) {
 				// add transfer OD pairs
 				int from = nextevent.OD[0][0];
-				int to   = nextevent.OD[0][1];
-				int num  = nextevent.OD[0][2];
+				int to = nextevent.OD[0][1];
+				int num = nextevent.OD[0][2];
 				addPassengers(from, to, num);
 				/////////also need to delete the OD!!!!!!!!!!!!!!
 				delete& nextevent;
@@ -382,7 +386,7 @@ Report Simulation::run() {
 		}
 
 	} while (time < TOTAL_SIMULATION_TIME);
-	
+
 	// when time is up
 	return report();
 }
@@ -393,14 +397,14 @@ Policy Simulation::getPolicy(int from, int to, int lineID) {
 	int nextStation;
 	int dir;
 	bool transfer = true;
-	if (num == 1){
+	if (num == 1) {
 		nextStation = policy[from][to][0];
 	}
 	else {
-		for (int i = 0; i < num; i++){
+		for (int i = 0; i < num; i++) {
 			nextStation = policy[from][to][i];
 			// if there is an optimal solution on the same line, abandon the transfer
-			if (lineIDOfStation[nextStation] == lineID){
+			if (lineIDOfStation[nextStation] == lineID) {
 				transfer = false;
 				break;
 			}
@@ -412,12 +416,12 @@ Policy Simulation::getPolicy(int from, int to, int lineID) {
 	}
 	dir = directions[from][nextStation];
 	if (dir != -1) {
-		Policy result = {dir, -1, -1};
+		Policy result = { dir, -1, -1 };
 		return result;
 	}
 	else {
 		dir = directions[nextStation][to];
-		Policy result = {-1, nextStation, dir};
+		Policy result = { -1, nextStation, dir };
 		return result;
 	}
 }
@@ -442,7 +446,7 @@ void Simulation::addPassengers(int from, int to, int num) {
 	double queue_len = (double)station->queue[direction].size();
 	double new_len = queue_len + (double)num;
 	station->avg_inStationTime[direction] = (queue_len * station->avg_inStationTime[direction]\
-			+ (double)num * time) / new_len;
+		+ (double)num * time) / new_len;
 	WaitingPassengers passengers;
 
 	//passengers.arrivingTime = time;
@@ -454,13 +458,24 @@ void Simulation::addPassengers(int from, int to, int num) {
 	num_departed += num;
 }
 
-// this is the function to initalize the Simulation and load the data
+// this is the function to load the data and initalize the Simulation 
 void Simulation::init() {
 	// first load the data
-	
-	
+	// arrivalStationID
+	str_mat str_ASID =			readcsv("simple_data/arrivalStationID.csv");
+	str_mat str_AT =			readcsv("simple_data/arrivalTime.csv");
+	str_mat str_directions =	readcsv("simple_data/directions.csv");
+	str_mat str_policy =		readcsv("simple_data/policy.csv");
+	str_mat str_policy_num =	readcsv("simple_data/policy_num.csv");
+	str_mat str_STI =			readcsv("simple_data/startTrainInfo.csv");
+	str_mat str_stations =		readcsv("simple_data/stations.csv");
+	str_mat str_TT =			readcsv("simple_data/transferTime.csv");
+
+
+
+
 	// init the iterators
-	totalTrainNum = 26;
+	totalTrainNum = str_STI.size();	// use startTranInfo to get the train number
 	time_iter = new int[totalTrainNum];
 	stationID_iter = new int[totalTrainNum];
 
@@ -468,6 +483,7 @@ void Simulation::init() {
 	reset();
 }
 
+// reset/init the simulation state using loaded data.
 void Simulation::reset() {
 	time = 0.0;
 	totalTravelTime = 0.0;
@@ -476,17 +492,17 @@ void Simulation::reset() {
 	num_arrived = 0;
 
 	// clear the events, maybe a bit slow
-	while(!EventQueue.empty())
+	while (!EventQueue.empty())
 		EventQueue.pop();
 
 	// reset the iterators
-	for(int i = 0; i < totalTrainNum; i++){
+	for (int i = 0; i < totalTrainNum; i++) {
 		time_iter[i] = 0;
 		stationID_iter[i] = 0;
 	}
 
 	// renew the start out trains
-	for(int i = 0; i < totalTrainNum; i++){
+	for (int i = 0; i < totalTrainNum; i++) {
 		int trainID = startTrainInfo[i][0];
 		int startingStationID = startTrainInfo[i][1];
 		int lineID = startTrainInfo[i][2];
@@ -501,11 +517,11 @@ void Simulation::reset() {
 	}
 
 	// renew the stations (queues)
-	for(int i = 0; i < TOTAL_STATIONS; i++){
+	for (int i = 0; i < TOTAL_STATIONS; i++) {
 		// reset the queues, maybe a bit slow
-		while(!stations[i].queue[0].empty())
+		while (!stations[i].queue[0].empty())
 			stations[i].queue[0].pop();
-		while(!stations[i].queue[1].empty())
+		while (!stations[i].queue[1].empty())
 			stations[i].queue[1].pop();
 
 		// reset avg_inStationTime
