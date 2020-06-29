@@ -60,8 +60,7 @@ public:
 	const EventType type;	// the type of the event
 	double time;			// the happening time of the event, in the unit of sec
 	int** OD = NULL;		// if is the global OD, it will be a matrix
-							// if is a transfer OD, OD[0] will be an array containing
-							// [int from, int to, int num]
+	int from, to, num;		// if is a transfer OD, use the compact format of [int from, int to, int num]
 	Train* train = NULL;
 
 	Event(double t, EventType type = ARRIVAL) : time(t), type(type) { }
@@ -122,23 +121,23 @@ public:
 	int num_departed;		// number of passengers put into the system
 	int num_arrived;		// number of passengers arrived at the destination
 
-	int policy_num[TOTAL_STATIONS][TOTAL_STATIONS];
+	int policy_num[TOTAL_STATIONS][TOTAL_STATIONS] = { 0 };
 	// the matrix stores the num of the optimal paths from station i to station j
 
-	int policy[TOTAL_STATIONS][TOTAL_STATIONS][MAX_POLICY_NUM];
+	int policy[TOTAL_STATIONS][TOTAL_STATIONS][MAX_POLICY_NUM] = { -1 };
 	// the matrix stores the optimal policy--what is the next station to go if the passenger is traveling
 	// from station i to station j
 	// considering that there may be several optimal solutions between two stations, at most MAX_POLICY_NUM 
 	// policies can be stored here
 
-	int directions[TOTAL_STATIONS][TOTAL_STATIONS];
+	int directions[TOTAL_STATIONS][TOTAL_STATIONS] = { -1 };
 	// return the direction from station i to station j
 	// if they are not on the same line, return -1
 
-	double transferTime[TOTAL_STATIONS][TOTAL_STATIONS];
+	double transferTime[TOTAL_STATIONS][TOTAL_STATIONS] = { -1 };
 	// this matrix stores the transfer time between two transfer stations.
 
-	int lineIDOfStation[TOTAL_STATIONS];
+	int lineIDOfStation[TOTAL_STATIONS] = { -1 };
 	// an array to store the ID of the line that the station belongs to
 
 	std::vector<std::vector<int>> startTrainInfo;
@@ -150,8 +149,11 @@ public:
 	std::vector<std::vector<int>> arrivalStationID;
 	// a 2-d matrix to store the arriving station's ID of each arrival recorded in 'arrivalTime' matrix above
 
-	Station* stations;
+	std::vector<Station> stations;
 	// an array to store all the stations
+
+	std::vector<std::vector<int>> fixedOD;
+	// a 2-d matrix to store the fixed OD data;
 
 	Simulation() : time(0), totalTravelTime(0), totalDelay(0), num_departed(0), num_arrived(0), EventQueue() {
 		srand((unsigned int)(std::time(NULL)));
@@ -282,12 +284,15 @@ Report Simulation::run() {
 									totalTravelTime += transferTime[station][transfer_stationID] * num_transfer;
 									// set up a new event for a future OD pair
 									Event newEvent(time + transferTime[station][transfer_stationID], TRANSFER);
-									int** ODpair = new int*;
+									/*int** ODpair = new int*;
 									ODpair[0] = new int[3];
 									ODpair[0][0] = transfer_stationID;
 									ODpair[0][1] = dest_station;
 									ODpair[0][2] = num_transfer;
-									newEvent.OD = ODpair;
+									newEvent.OD = ODpair;*/
+									newEvent.from = transfer_stationID;
+									newEvent.to = dest_station;
+									newEvent.num = num_transfer;
 									EventQueue.push(newEvent);
 								}
 
@@ -375,11 +380,11 @@ Report Simulation::run() {
 			}
 			else if (nextevent.type == TRANSFER) {
 				// add transfer OD pairs
-				int from = nextevent.OD[0][0];
+				/*int from = nextevent.OD[0][0];
 				int to = nextevent.OD[0][1];
-				int num = nextevent.OD[0][2];
-				addPassengers(from, to, num);
-				/////////also need to delete the OD!!!!!!!!!!!!!!
+				int num = nextevent.OD[0][2];*/
+				addPassengers(nextevent.from, nextevent.to, nextevent.num);
+				/////////also need to delete the OD!!!!!!!!!!!!!!...??
 				delete& nextevent;
 			}
 
@@ -462,17 +467,105 @@ void Simulation::addPassengers(int from, int to, int num) {
 void Simulation::init() {
 	// first load the data
 	// arrivalStationID
-	str_mat str_ASID =			readcsv("simple_data/arrivalStationID.csv");
-	str_mat str_AT =			readcsv("simple_data/arrivalTime.csv");
-	str_mat str_directions =	readcsv("simple_data/directions.csv");
-	str_mat str_policy =		readcsv("simple_data/policy.csv");
-	str_mat str_policy_num =	readcsv("simple_data/policy_num.csv");
-	str_mat str_STI =			readcsv("simple_data/startTrainInfo.csv");
-	str_mat str_stations =		readcsv("simple_data/stations.csv");
-	str_mat str_TT =			readcsv("simple_data/transferTime.csv");
+	str_mat str_ASID =			readcsv("simple_data/arrivalStationID.csv");	// arrivalStationID
+	str_mat str_AT =			readcsv("simple_data/arrivalTime.csv");			// arrivalTime
+	str_mat str_directions =	readcsv("simple_data/directions.csv");			// directions
+	str_mat str_policy =		readcsv("simple_data/policy.csv");				// policy
+	str_mat str_policy_num =	readcsv("simple_data/policy_num.csv");			// policy_num
+	str_mat str_STI =			readcsv("simple_data/startTrainInfo.csv");		// startTrainInfo
+	str_mat str_stations =		readcsv("simple_data/stations.csv");			// stations
+	str_mat str_TT =			readcsv("simple_data/transferTime.csv");		// transferTime
+	str_mat str_fixedOD =		readcsv("simple_data/fixedOD.csv");				// fixedOD
 
+	// then load the data for each variable in turn
+	// str_ASID to arrivalStationID: str_mat to vector of vector of int
+	for (auto iter_row = str_ASID.cbegin(); iter_row != str_ASID.cend(); iter_row++)
+	{
+		vector<int> newASID;
+		for (auto iter_col = (*iter_row).cbegin(); iter_col != (*iter_row).cend(); iter_col++)
+		{
+			newASID.push_back(atoi((*iter_col).c_str()));
+		}
+		arrivalStationID.push_back(newASID);
+	}
 
+	// str_AT to arrivalTime: str_mat to vector of vector of double
+	for (auto iter_row = str_AT.cbegin(); iter_row != str_AT.cend(); iter_row++)
+	{
+		vector<double> newAT;
+		for (auto iter_col = (*iter_row).cbegin(); iter_col != (*iter_row).cend(); iter_col++)
+		{
+			newAT.push_back(atof((*iter_col).c_str()));
+		}
+		arrivalTime.push_back(newAT);
+	}
 
+	// str_directions to directions: str_mat (compact format) to 2-d array
+	for (auto iter_row = str_directions.cbegin(); iter_row != str_directions.cend(); iter_row++)
+	{
+		int from = atoi((*iter_row)[0].c_str());
+		int to = atoi((*iter_row)[1].c_str());
+		int direction = atoi((*iter_row)[2].c_str());
+		directions[from][to] = direction;
+	}
+
+	// str_policy to policy: str_mat (compact format) to 3-d array
+	for (auto iter_row = str_policy.cbegin(); iter_row != str_policy.cend(); iter_row++)
+	{
+		int from = atoi((*iter_row)[0].c_str());
+		int to = atoi((*iter_row)[1].c_str());
+		int index = 0;
+		auto iter_col = (*iter_row).cbegin();
+		iter_col++;
+		iter_col++;
+		while (iter_col != (*iter_row).cend()) {
+			policy[from][to][index] = atoi((*iter_col).c_str());
+			index++;
+			iter_col++;
+		}
+	}
+
+	// str_policy_num to policy_num & str_TT to transferTime
+	for (int row = 0; row < TOTAL_STATIONS; row++) {
+		for (int col = 0; col < TOTAL_STATIONS; col++) {
+			policy_num[row][col] = atoi((str_policy_num[row][col]).c_str());
+			transferTime[row][col] = atoi((str_TT[row][col]).c_str());
+		}
+	}
+	// str_STI to startTrainInfo
+	for (auto iter_row = str_STI.cbegin(); iter_row != str_STI.cend(); iter_row++)
+	{
+		vector<int> newTrain;
+		for (auto iter_col = (*iter_row).cbegin(); iter_col != (*iter_row).cend(); iter_col++)
+		{
+			newTrain.push_back(atoi((*iter_col).c_str()));
+		}
+		startTrainInfo.push_back(newTrain);
+	}
+
+	// str_stations to stations
+	for (auto iter_row = str_stations.cbegin(); iter_row != str_stations.cend(); iter_row++)
+	{
+		int stationID = atoi((*iter_row)[0].c_str());
+		int lineID = atoi((*iter_row)[1].c_str());
+		bool isTerminal0 = str2bool((*iter_row)[2]);
+		bool isTerminal1 = str2bool((*iter_row)[3]);
+		bool isTransfer = str2bool((*iter_row)[4]);
+
+		Station newStation(stationID, lineID, isTerminal0, isTerminal0, isTransfer);
+		stations.push_back(newStation);
+	}
+
+	// str_fixedOD to fixedOD
+	for (auto iter_row = str_fixedOD.cbegin(); iter_row != str_fixedOD.cend(); iter_row++)
+	{
+		vector<int> newOD;
+		for (auto iter_col = (*iter_row).cbegin(); iter_col != (*iter_row).cend(); iter_col++)
+		{
+			newOD.push_back(atoi((*iter_col).c_str()));
+		}
+		fixedOD.push_back(newOD);
+	}
 
 	// init the iterators
 	totalTrainNum = str_STI.size();	// use startTranInfo to get the train number
@@ -491,7 +584,9 @@ void Simulation::reset() {
 	num_departed = 0;
 	num_arrived = 0;
 
-	// clear the events, maybe a bit slow
+	// #################################
+	// clear the events, maybe very slow
+	// #################################
 	while (!EventQueue.empty())
 		EventQueue.pop();
 
@@ -514,6 +609,23 @@ void Simulation::reset() {
 		Event newEvent(startTime, ARRIVAL);
 		newEvent.train = newTrain;
 		EventQueue.push(newEvent);
+	}
+
+	// renew the fixed OD pairs
+	for (auto iter_row = fixedOD.cbegin(); iter_row != fixedOD.cend(); iter_row++)
+	{
+		int O = (*iter_row)[0];
+		int D = (*iter_row)[1];
+		int number = (*iter_row)[2];
+		int time = (*iter_row)[3];
+		// #########################################################################
+		// TRANSFER type is more suitable for compact format. Will be changed later.
+		// #########################################################################
+		Event newODEvent(double(time), TRANSFER);
+		newODEvent.from = O;
+		newODEvent.to = D;
+		newODEvent.num = number;
+		EventQueue.push(newODEvent);
 	}
 
 	// renew the stations (queues)
