@@ -1,0 +1,4 @@
+﻿  Simulation.cpp
+D:\Projects\CTA-optimal-control-under-incidents\CTA-railway\CTA-railway\Simulation.hpp(94,1): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\Projects\CTA-optimal-control-under-incidents\CTA-railway\CTA-railway\Simulation.cpp(389,32): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  CTA-railway.vcxproj -> D:\Projects\CTA-optimal-control-under-incidents\CTA-railway\x64\Debug\CTA-railway.exe

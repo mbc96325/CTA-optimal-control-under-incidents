@@ -3,6 +3,12 @@
 #include "util.hpp"
 #include "Simulation.hpp"
 
+// the function of Report
+void Report::show() {
+	std::cout << "isFinished:\t" << isFinished << "\n";
+	std::cout << "totalTravelTime:\t" << totalTravelTime << "\n";
+	std::cout << "totalDelay:\t" << totalDelay << "\n";
+}
 
 // an inner function to arrange all the information needed in the RL model
 Report Simulation::report() {
@@ -139,6 +145,7 @@ Report Simulation::run() {
 							passengerNum += capacity;
 							destination[passengers->destination] += capacity;
 							capacity = 0;
+							break;
 						}
 					}
 
@@ -164,13 +171,13 @@ Report Simulation::run() {
 					if (passengerNum > 0)
 						throw "passenger not cleared at terminal!";
 					delete train;
-					delete& nextevent;
+					//delete& nextevent;
 				}
 
 			}
 			else if (nextevent.type == SUSPEND) {
 				// return immediate cost for the RL model to make decision
-				delete& nextevent;
+				//delete& nextevent;
 
 				return report();
 			}
@@ -187,7 +194,7 @@ Report Simulation::run() {
 					}
 				}
 				/////////also need to delete the OD!!!!!!!!!!!!!!
-				delete& nextevent;
+				//delete& nextevent;
 			}
 			else if (nextevent.type == TRANSFER) {
 				// add transfer OD pairs
@@ -196,7 +203,7 @@ Report Simulation::run() {
 				int num = nextevent.OD[0][2];*/
 				addPassengers(nextevent.from, nextevent.to, nextevent.num);
 				/////////also need to delete the OD!!!!!!!!!!!!!!...??
-				delete& nextevent;
+				//delete& nextevent;
 			}
 
 		}

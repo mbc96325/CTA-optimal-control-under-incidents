@@ -10,6 +10,8 @@ num_departed修正...done!
 初始化一口气加入所有出发事件...done!
 添加OD的接口，OD改为密集记法，现在太慢...done!
 换乘新增OD一口气加入到PQ里，节省时间...done!
-将OD和Transfer时间类型进行整合
-查询下一站站点和到站时间的函数！
+查询下一站站点和到站时间的函数...done!
+
 跑起来
+考虑warm-up period
+将OD和Transfer时间类型进行整合

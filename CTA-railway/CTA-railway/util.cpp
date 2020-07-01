@@ -35,9 +35,9 @@ void SplitString(const string& s, vector<string>& v, const string& c)
 }
 
 bool str2bool(string str) {
-    if (str.compare("TRUE") == 1 || str.compare("true") == 1 || str.compare("True") == 1)
+    if (str.compare("TRUE") == 0 || str.compare("true") == 0 || str.compare("True") == 0)
         return true;
-    if (str.compare("FALSE") == 1 || str.compare("false") == 1 || str.compare("False") == 1)
+    if (str.compare("FALSE") == 0 || str.compare("false") == 0 || str.compare("False") == 0)
         return false;
     cout << "bool value input error!\n";
     throw "bool value input error";

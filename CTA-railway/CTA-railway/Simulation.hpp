@@ -10,7 +10,7 @@
 
 #define TOTAL_STATIONS 3
 #define DEFAULT_CAPACITY 3000
-#define WARMUP_PERIOD 180
+#define WARMUP_PERIOD 0
 #define TOTAL_SIMULATION_TIME 600
 #define MAX_TRANSFER 8
 #define MAX_POLICY_NUM 4	// the largest possible num of optimal policy from station i to station j
@@ -55,7 +55,7 @@ struct Policy { // itenerary
 class Event {
 	// the base class for events
 public:
-	const EventType type;	// the type of the event
+	EventType type;	// the type of the event
 	double time;			// the happening time of the event, in the unit of sec
 	int** OD = NULL;		// if is the global OD, it will be a matrix
 	int from, to, num;		// if is a transfer OD, use the compact format of [int from, int to, int num]
@@ -86,6 +86,8 @@ public:
 		ID(ID), lineID(lineID), isTransfer(isTransfer) {
 		isTerminal[0] = isTerminalInDir0;
 		isTerminal[1] = isTerminalInDir1;
+		avg_inStationTime[0] = 0.0;
+		avg_inStationTime[1] = 0.0;
 	}
 
 	int getQueueNum(int direction) {
@@ -189,4 +191,5 @@ struct Report {
 	bool isFinished;
 	double totalTravelTime;
 	double totalDelay;
+	void show();
 };
