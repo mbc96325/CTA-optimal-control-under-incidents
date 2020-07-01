@@ -452,3 +452,15 @@ void Simulation::reset() {
 		stations[i].avg_inStationTime[1] = 0.0;
 	}
 }
+
+double Simulation::getNextArrivalTime(int trainID) {
+	double NAT = arrivalTime[trainID][time_iter[trainID]];
+	time_iter[trainID]++;
+	return NAT;
+}
+
+int Simulation::getNextArrivalStationID(int trainID) {
+	int NASID = arrivalStationID[trainID][stationID_iter[trainID]];
+	stationID_iter[trainID]++;
+	return NASID;
+}

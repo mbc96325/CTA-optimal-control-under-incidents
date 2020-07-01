@@ -9,9 +9,9 @@
 #include <string>
 
 #define TOTAL_STATIONS 3
-#define DEFAULT_CAPACITY 300
-#define WARMUP_PERIOD 3600
-#define TOTAL_SIMULATION_TIME 7200
+#define DEFAULT_CAPACITY 3000
+#define WARMUP_PERIOD 180
+#define TOTAL_SIMULATION_TIME 600
 #define MAX_TRANSFER 8
 #define MAX_POLICY_NUM 4	// the largest possible num of optimal policy from station i to station j
 
