@@ -12,6 +12,7 @@ num_departed修正...done!
 换乘新增OD一口气加入到PQ里，节省时间...done!
 查询下一站站点和到站时间的函数...done!
 
-跑起来
+跑起来...done!
+验证结果合理性
 考虑warm-up period
 将OD和Transfer时间类型进行整合
