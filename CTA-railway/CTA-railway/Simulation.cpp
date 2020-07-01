@@ -5,8 +5,11 @@
 
 // the function of Report
 void Report::show() {
-	std::cout << "isFinished:\t" << isFinished << "\n";
-	std::cout << "totalTravelTime:\t" << totalTravelTime << "\n";
+	if (isFinished)
+		std::cout << "isFinished:\t" << "TRUE" << "\n";
+	else
+		std::cout << "isFinished:\t" << "FALSE" << "\n";
+	std::cout << "totalTravelTime:" << totalTravelTime << "\n";
 	std::cout << "totalDelay:\t" << totalDelay << "\n";
 }
 
