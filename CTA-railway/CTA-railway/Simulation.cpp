@@ -156,6 +156,7 @@ Report Simulation::run() {
 					// rebuild with a new function to get the next arrival time and next station!!!!!!!!!!
 					nextevent.time = getNextArrivalTime(trainID);
 					train->arrivingStation = getNextArrivalStationID(trainID);
+					train->lastTime = time;
 					EventQueue.push(nextevent);
 
 					// if the station is the first station, start a new train
@@ -373,7 +374,7 @@ void Simulation::init() {
 		bool isTerminal1 = str2bool((*iter_row)[3]);
 		bool isTransfer = str2bool((*iter_row)[4]);
 
-		Station newStation(stationID, lineID, isTerminal0, isTerminal0, isTransfer);
+		Station newStation(stationID, lineID, isTerminal0, isTerminal1, isTransfer);
 		stations.push_back(newStation);
 	}
 
