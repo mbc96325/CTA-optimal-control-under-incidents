@@ -67,7 +67,7 @@ Report Simulation::run() {
 						if (destination[dest_station] > 0) {
 							// first, find the passengers whose trip is finished ( not at this station,
 							// but at its transfer station ), finish them!
-							if (transferTime[station][dest_station] >= 0.0) {		// try to use transfer time to do it...
+							if (transferTime[station][dest_station] >= 0.0) {
 								int off_num = destination[dest_station];
 								passengerNum -= destination[dest_station];
 								capacity += destination[dest_station];
@@ -126,27 +126,29 @@ Report Simulation::run() {
 
 					// calculate delay and total travel time
 					double delta_time = (time - stations[station].avg_inStationTime[direction])\
-						* (double)passengerQueue->size();
+						* (double)stations[station].queueSize[direction];
 					totalDelay += delta_time;
 					totalTravelTime += delta_time;
 					stations[station].avg_inStationTime[direction] = time;
 
-					// if there is space on the train, get the passengers onto the train
-					while (!passengerQueue->empty()) {
+					// if there is space on the train, get the passengers (if existing) onto the train
+					while (!passengerQueue->empty() && capacity > 0) {
 						WaitingPassengers* passengers = &passengerQueue->front();
 
 						if (passengers->numPassengers <= capacity) {
-							// all this destination group get on the train
+							// all this destination group get on the train, update the passenger num on and off the train
 							capacity -= passengers->numPassengers;
 							passengerNum += passengers->numPassengers;
 							destination[passengers->destination] += passengers->numPassengers;
+							stations[station].queueSize[direction] -= passengers->numPassengers;
 							passengerQueue->pop();
 						}
 						else {
-							// part of this destination group get on the train
+							// part of this destination group get on the train, update the passenger num on and off the train
 							passengers->numPassengers -= capacity;
 							passengerNum += capacity;
 							destination[passengers->destination] += capacity;
+							stations[station].queueSize[direction] -= capacity;
 							capacity = 0;
 							break;
 						}
@@ -270,7 +272,7 @@ void Simulation::addPassengers(int from, int to, int num) {
 	Station* station = &stations[from];
 
 	// push the passengers into the queue, update avg_inStationTime
-	double queue_len = (double)station->queue[direction].size();
+	double queue_len = (double)station->queueSize[direction];
 	double new_len = queue_len + (double)num;
 	station->avg_inStationTime[direction] = (queue_len * station->avg_inStationTime[direction]\
 		+ (double)num * time) / new_len;
@@ -280,6 +282,7 @@ void Simulation::addPassengers(int from, int to, int num) {
 	passengers.destination = to;
 	passengers.numPassengers = num;
 	station->queue[direction].push(passengers);
+	station->queueSize[direction] += num;
 
 	// update the num of departed passengers
 	num_departed += num;

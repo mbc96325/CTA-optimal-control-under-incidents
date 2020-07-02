@@ -11,7 +11,7 @@
 #define TOTAL_STATIONS 3
 #define DEFAULT_CAPACITY 3000
 #define WARMUP_PERIOD 0
-#define TOTAL_SIMULATION_TIME 600
+#define TOTAL_SIMULATION_TIME 901
 #define MAX_TRANSFER 8
 #define MAX_POLICY_NUM 4	// the largest possible num of optimal policy from station i to station j
 
@@ -79,6 +79,7 @@ public:
 	int lineID;				// line ID
 	bool isTerminal[2];		// if the station is the terminal station
 	bool isTransfer;		// if the station is a transfer station
+	int queueSize[2];		// record the number of passengers waiting in the queues of both directions
 	Q queue[2];				// passenger queues for both directions
 	double avg_inStationTime[2];	//avg arriving time of passengers in the queue, used for delay calculation
 
@@ -86,12 +87,14 @@ public:
 		ID(ID), lineID(lineID), isTransfer(isTransfer) {
 		isTerminal[0] = isTerminalInDir0;
 		isTerminal[1] = isTerminalInDir1;
+		queueSize[0] = 0;
+		queueSize[1] = 0;
 		avg_inStationTime[0] = 0.0;
 		avg_inStationTime[1] = 0.0;
 	}
 
 	int getQueueNum(int direction) {
-		return queue[direction].size();
+		return queueSize[direction];
 	}
 };
 
