@@ -38,36 +38,4 @@
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="simple_data\EXPLANATION.xlsx">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="simple_data\fixedOD.csv">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="simple_data\policy.csv">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="simple_data\policy_num.csv">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="simple_data\startTrainInfo.csv">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="simple_data\stations.csv">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="simple_data\transferTime.csv">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="simple_data\arrivalStationID.csv">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="simple_data\arrivalTime.csv">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="simple_data\directions.csv">
-      <Filter>资源文件</Filter>
-    </None>
-  </ItemGroup>
 </Project>

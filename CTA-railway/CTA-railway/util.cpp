@@ -2,9 +2,11 @@
 
 str_mat readcsv(string file_name) {
     str_mat mat;
-    ifstream file(file_name);
+    ifstream file;
+    file.open(file_name);
     string line;
     bool end = false;
+    int debug = 0;  // for debug
     while (!file.eof()) {
         vector<string> newRow;
         // read a line
@@ -12,6 +14,9 @@ str_mat readcsv(string file_name) {
         SplitString(line, newRow, ",");
         if (!newRow.empty()) {
             mat.push_back(newRow);
+            // debug
+            std::cout << debug++;
+            std::cout << ' ' << newRow[0] << '\n';
         }
     }
     file.close();

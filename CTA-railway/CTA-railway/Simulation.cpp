@@ -233,7 +233,7 @@ Policy Simulation::getPolicy(int from, int to, int lineID) {
 		for (int i = 0; i < num; i++) {
 			nextStation = policy[from][to][i];
 			// if there is an optimal solution on the same line, abandon the transfer
-			if (lineIDOfStation[nextStation] == lineID) {
+			if (stations[nextStation].lineID == lineID) {
 				transfer = false;
 				break;
 			}
@@ -244,12 +244,17 @@ Policy Simulation::getPolicy(int from, int to, int lineID) {
 		}
 	}
 	dir = directions[from][nextStation];
-	if (dir != -1) {
+	if (dir != -1) { // no need to transfer
 		Policy result = { dir, -1, -1 };
 		return result;
 	}
-	else {
-		dir = directions[nextStation][to];
+	else {	// need to transfer
+		// here we assume a passenger won't transfer twice continuously
+		// also assume there's only one shortest path after transfer
+		int nextNextStation = policy[nextStation][to][0];
+		dir = directions[nextStation][nextNextStation];
+		if (dir == -1)
+			cerr << "continuous transfer!\n";
 		Policy result = { -1, nextStation, dir };
 		return result;
 	}
@@ -290,17 +295,53 @@ void Simulation::addPassengers(int from, int to, int num) {
 
 // this is the function to load the data and initalize the Simulation 
 void Simulation::init() {
-	// first load the data
+	// first init the variables
+	policy_num = new int*[TOTAL_STATIONS];
+	for (int i = 0; i < TOTAL_STATIONS; i++) {
+		policy_num[i] = new int[TOTAL_STATIONS];
+		for (int j = 0; j < TOTAL_STATIONS; j++) {
+			policy_num[i][j] = 0;
+		}
+	}
+
+	policy = new int** [TOTAL_STATIONS];
+	for (int i = 0; i < TOTAL_STATIONS; i++) {
+		policy[i] = new int*[TOTAL_STATIONS];
+		for (int j = 0; j < TOTAL_STATIONS; j++) {
+			policy[i][j] = new int[MAX_POLICY_NUM];
+			for (int k = 0; k < MAX_POLICY_NUM; k++) {
+				policy[i][j][k] = -1;
+			}
+		}
+	}
+
+	directions = new int* [TOTAL_STATIONS];
+	for (int i = 0; i < TOTAL_STATIONS; i++) {
+		directions[i] = new int[TOTAL_STATIONS];
+		for (int j = 0; j < TOTAL_STATIONS; j++) {
+			directions[i][j] = -1;
+		}
+	}
+
+	transferTime = new double* [TOTAL_STATIONS];
+	for (int i = 0; i < TOTAL_STATIONS; i++) {
+		transferTime[i] = new double[TOTAL_STATIONS];
+		for (int j = 0; j < TOTAL_STATIONS; j++) {
+			transferTime[i][j] = -1.0;
+		}
+	}
+
+	// then load the data
 	// arrivalStationID
-	str_mat str_ASID =			readcsv("simple_data/arrivalStationID.csv");	// arrivalStationID
-	str_mat str_AT =			readcsv("simple_data/arrivalTime.csv");			// arrivalTime
-	str_mat str_directions =	readcsv("simple_data/directions.csv");			// directions
-	str_mat str_policy =		readcsv("simple_data/policy.csv");				// policy
-	str_mat str_policy_num =	readcsv("simple_data/policy_num.csv");			// policy_num
-	str_mat str_STI =			readcsv("simple_data/startTrainInfo.csv");		// startTrainInfo
-	str_mat str_stations =		readcsv("simple_data/stations.csv");			// stations
-	str_mat str_TT =			readcsv("simple_data/transferTime.csv");		// transferTime
-	str_mat str_fixedOD =		readcsv("simple_data/fixedOD.csv");				// fixedOD
+	str_mat str_ASID =			readcsv("data/arrivalStationID.csv");	// arrivalStationID
+	str_mat str_AT =			readcsv("data/arrivalTime.csv");		// arrivalTime
+	str_mat str_directions =	readcsv("data/directions.csv");			// directions
+	str_mat str_policy =		readcsv("data/policy.csv");				// policy
+	str_mat str_policy_num =	readcsv("data/policy_num.csv");			// policy_num
+	str_mat str_STI =			readcsv("data/startTrainInfo.csv");		// startTrainInfo
+	str_mat str_stations =		readcsv("data/stations.csv");			// stations
+	str_mat str_TT =			readcsv("data/transferTime.csv");		// transferTime
+	str_mat str_fixedOD =		readcsv("data/fixedOD.csv");			// fixedOD
 
 	// then load the data for each variable in turn
 	// str_ASID to arrivalStationID: str_mat to vector of vector of int

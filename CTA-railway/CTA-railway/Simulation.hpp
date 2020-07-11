@@ -8,12 +8,12 @@
 #include <vector>
 #include <string>
 
-#define TOTAL_STATIONS 3
-#define DEFAULT_CAPACITY 3000
+#define TOTAL_STATIONS 252	// 需要改成init中来初始化
+#define DEFAULT_CAPACITY 500
 #define WARMUP_PERIOD 0
-#define TOTAL_SIMULATION_TIME 901
+#define TOTAL_SIMULATION_TIME 86400
 #define MAX_TRANSFER 8
-#define MAX_POLICY_NUM 4	// the largest possible num of optimal policy from station i to station j
+#define MAX_POLICY_NUM 1	// the largest possible num of optimal policy from station i to station j
 
 // declaration
 struct Report;				// the struct to report to the RL model
@@ -124,23 +124,23 @@ public:
 	int num_departed;		// number of passengers put into the system
 	int num_arrived;		// number of passengers arrived at the destination
 
-	int policy_num[TOTAL_STATIONS][TOTAL_STATIONS] = { 0 };
+	int** policy_num; // [TOTAL_STATIONS] [TOTAL_STATIONS] = { 0 };
 	// the matrix stores the num of the optimal paths from station i to station j
 
-	int policy[TOTAL_STATIONS][TOTAL_STATIONS][MAX_POLICY_NUM] = { -1 };
+	int*** policy; // [TOTAL_STATIONS] [TOTAL_STATIONS] [MAX_POLICY_NUM] = { -1 };
 	// the matrix stores the optimal policy--what is the next station to go if the passenger is traveling
 	// from station i to station j
 	// considering that there may be several optimal solutions between two stations, at most MAX_POLICY_NUM 
 	// policies can be stored here
 
-	int directions[TOTAL_STATIONS][TOTAL_STATIONS] = { -1 };
+	int** directions; //  [TOTAL_STATIONS] [TOTAL_STATIONS] = { -1 };
 	// return the direction from station i to station j
-	// if they are not on the same line, return -1
+	// only when i and j are adjacent stations
 
-	double transferTime[TOTAL_STATIONS][TOTAL_STATIONS] = { -1 };
+	double** transferTime; // [TOTAL_STATIONS] [TOTAL_STATIONS] = { -1 };
 	// this matrix stores the transfer time between two transfer stations.
 
-	int lineIDOfStation[TOTAL_STATIONS] = { -1 };
+	//int lineIDOfStation[TOTAL_STATIONS] = { -1 };
 	// an array to store the ID of the line that the station belongs to
 
 	std::vector<std::vector<int>> startTrainInfo;

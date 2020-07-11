@@ -150,18 +150,6 @@
     <ClCompile Include="test.cpp" />
     <ClCompile Include="util.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="simple_data\arrivalStationID.csv" />
-    <None Include="simple_data\arrivalTime.csv" />
-    <None Include="simple_data\directions.csv" />
-    <None Include="simple_data\EXPLANATION.xlsx" />
-    <None Include="simple_data\fixedOD.csv" />
-    <None Include="simple_data\policy.csv" />
-    <None Include="simple_data\policy_num.csv" />
-    <None Include="simple_data\startTrainInfo.csv" />
-    <None Include="simple_data\stations.csv" />
-    <None Include="simple_data\transferTime.csv" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
