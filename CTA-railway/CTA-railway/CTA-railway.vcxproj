@@ -146,8 +146,10 @@
     <Text Include="progress.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AuxiliaryFunctions.cpp" />
+    <ClCompile Include="InitFunctions.cpp" />
     <ClCompile Include="Simulation.cpp" />
-    <ClCompile Include="test.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="util.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

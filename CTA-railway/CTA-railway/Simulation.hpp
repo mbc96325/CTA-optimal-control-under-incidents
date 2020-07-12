@@ -11,7 +11,7 @@
 #define TOTAL_STATIONS 252	// 需要改成init中来初始化
 #define DEFAULT_CAPACITY 500
 #define WARMUP_PERIOD 0
-#define TOTAL_SIMULATION_TIME 86400
+#define TOTAL_SIMULATION_TIME 36000
 #define MAX_TRANSFER 8
 #define MAX_POLICY_NUM 1	// the largest possible num of optimal policy from station i to station j
 
@@ -34,8 +34,7 @@ enum EventType {
 	// TRANSFER is to add future OD of transfer passengers
 	ARRIVAL,
 	SUSPEND,
-	NEW_OD,
-	TRANSFER
+	NEW_OD
 };
 
 struct WaitingPassengers {
@@ -181,11 +180,18 @@ protected:
 	int* stationID_iter;	// iterator to iterate the arrivalStationID matrix
 
 	Report report();	// return the system information
-	bool isOnSameLine(int station, int line);	// return true if the station is in that line 
-												// or the station's transfer station is in the line
 	Policy getPolicy(int from, int to, int lineID);	// return the optimal traveling policy
+	int getNextStation(int from, int to, int lineID);	// return the next station to go
+
+	//**************************************************************************************
+	// getNextArrivalTime must be called together with getNextArrivalStationID
 	double getNextArrivalTime(int trainID);		// query the arrival time for each train
 	int getNextArrivalStationID(int trainID);	// query the arrival station for each train
+	//**************************************************************************************
+	bool trainEnd(int trainID);	// check if the train has arrived at its end before the terminal station
+	
+	// find the station where the passenger really take the train, return the transfer time.
+	int getRealStation(int from, int to, double& _transfer_time);	
 
 };
 

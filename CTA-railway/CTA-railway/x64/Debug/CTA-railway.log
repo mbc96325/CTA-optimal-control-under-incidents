@@ -1,5 +1,8 @@
-﻿  Simulation.cpp
-C:\Users\HuXiao\source\repos\CTA-optimal-control-under-incidents\CTA-railway\CTA-railway\Simulation.cpp(437,32): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-  test.cpp
+﻿  AuxiliaryFunctions.cpp
+  InitFunctions.cpp
+C:\Users\HuXiao\source\repos\CTA-optimal-control-under-incidents\CTA-railway\CTA-railway\InitFunctions.cpp(151,32): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  Simulation.cpp
+  main.cpp
   正在生成代码...
+    正在创建库 C:\Users\HuXiao\source\repos\CTA-optimal-control-under-incidents\CTA-railway\x64\Debug\CTA-railway.lib 和对象 C:\Users\HuXiao\source\repos\CTA-optimal-control-under-incidents\CTA-railway\x64\Debug\CTA-railway.exp
   CTA-railway.vcxproj -> C:\Users\HuXiao\source\repos\CTA-optimal-control-under-incidents\CTA-railway\x64\Debug\CTA-railway.exe
