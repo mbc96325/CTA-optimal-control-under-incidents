@@ -1,0 +1,487 @@
+Reading disk.........done
+Loading datadone
+Start initializing the simulator...Simulation initialized!
+Start running...
+40 passengers not cleared at temperary terminal 52!
+42 passengers not cleared at temperary terminal 52!
+ERROR: 1 passengers not cleared at fixed terminal station 44!
+337 passengers not cleared at temperary terminal 52!
+179 passengers not cleared at temperary terminal 1!
+ERROR: 2 passengers not cleared at fixed terminal station 44!
+71 passengers not cleared at temperary terminal 17!
+ERROR: 3 passengers not cleared at fixed terminal station 17!
+119 passengers not cleared at temperary terminal 17!
+ERROR: 10 passengers not cleared at fixed terminal station 44!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 11 passengers not cleared at fixed terminal station 1!
+ERROR: 1 passengers not cleared at fixed terminal station 44!
+ERROR: 5 passengers not cleared at fixed terminal station 17!
+ERROR: 6 passengers not cleared at fixed terminal station 17!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 11 passengers not cleared at fixed terminal station 1!
+ERROR: 2 passengers not cleared at fixed terminal station 44!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 4 passengers not cleared at fixed terminal station 17!
+ERROR: 2 passengers not cleared at fixed terminal station 1!
+ERROR: 4 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 52!
+123 passengers not cleared at temperary terminal 22!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 9 passengers not cleared at fixed terminal station 17!
+497 passengers not cleared at temperary terminal 22!
+ERROR: 19 passengers not cleared at fixed terminal station 44!
+ERROR: 19 passengers not cleared at fixed terminal station 1!
+ERROR: 7 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 8 passengers not cleared at fixed terminal station 17!
+ERROR: 6 passengers not cleared at fixed terminal station 17!
+57 passengers not cleared at temperary terminal 22!
+ERROR: 14 passengers not cleared at fixed terminal station 1!
+ERROR: 5 passengers not cleared at fixed terminal station 44!
+499 passengers not cleared at temperary terminal 52!
+ERROR: 3 passengers not cleared at fixed terminal station 17!
+ERROR: 15 passengers not cleared at fixed terminal station 17!
+500 passengers not cleared at temperary terminal 52!
+61 passengers not cleared at temperary terminal 22!
+500 passengers not cleared at temperary terminal 52!
+498 passengers not cleared at temperary terminal 76!
+ERROR: 15 passengers not cleared at fixed terminal station 1!
+ERROR: 7 passengers not cleared at fixed terminal station 44!
+29 passengers not cleared at temperary terminal 29!
+34 passengers not cleared at temperary terminal 22!
+431 passengers not cleared at temperary terminal 76!
+ERROR: 7 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 28!
+ERROR: 9 passengers not cleared at fixed terminal station 17!
+500 passengers not cleared at temperary terminal 26!
+29 passengers not cleared at temperary terminal 22!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 12 passengers not cleared at fixed terminal station 17!
+500 passengers not cleared at temperary terminal 52!
+498 passengers not cleared at temperary terminal 28!
+486 passengers not cleared at temperary terminal 22!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 7 passengers not cleared at fixed terminal station 17!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 10 passengers not cleared at fixed terminal station 44!
+499 passengers not cleared at temperary terminal 28!
+ERROR: 7 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 8 passengers not cleared at fixed terminal station 44!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 28!
+ERROR: 2 passengers not cleared at fixed terminal station 1!
+ERROR: 11 passengers not cleared at fixed terminal station 17!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 8 passengers not cleared at fixed terminal station 1!
+ERROR: 3 passengers not cleared at fixed terminal station 44!
+ERROR: 3 passengers not cleared at fixed terminal station 26!
+ERROR: 1 passengers not cleared at fixed terminal station 26!
+ERROR: 5 passengers not cleared at fixed terminal station 17!
+ERROR: 7 passengers not cleared at fixed terminal station 1!
+ERROR: 9 passengers not cleared at fixed terminal station 44!
+ERROR: 5 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 4 passengers not cleared at fixed terminal station 1!
+ERROR: 4 passengers not cleared at fixed terminal station 17!
+ERROR: 6 passengers not cleared at fixed terminal station 1!
+ERROR: 5 passengers not cleared at fixed terminal station 44!
+500 passengers not cleared at temperary terminal 26!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 6 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 16 passengers not cleared at fixed terminal station 17!
+ERROR: 1 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 76!
+ERROR: 8 passengers not cleared at fixed terminal station 44!
+ERROR: 16 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 76!
+ERROR: 17 passengers not cleared at fixed terminal station 17!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 3 passengers not cleared at fixed terminal station 1!
+ERROR: 5 passengers not cleared at fixed terminal station 44!
+ERROR: 19 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 15 passengers not cleared at fixed terminal station 17!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 4 passengers not cleared at fixed terminal station 1!
+ERROR: 10 passengers not cleared at fixed terminal station 44!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 15 passengers not cleared at fixed terminal station 1!
+29 passengers not cleared at temperary terminal 29!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 4 passengers not cleared at fixed terminal station 17!
+121 passengers not cleared at temperary terminal 44!
+ERROR: 11 passengers not cleared at fixed terminal station 44!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 5 passengers not cleared at fixed terminal station 17!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 10 passengers not cleared at fixed terminal station 1!
+ERROR: 14 passengers not cleared at fixed terminal station 44!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 28!
+ERROR: 5 passengers not cleared at fixed terminal station 1!
+ERROR: 15 passengers not cleared at fixed terminal station 17!
+ERROR: 14 passengers not cleared at fixed terminal station 1!
+53 passengers not cleared at temperary terminal 44!
+ERROR: 10 passengers not cleared at fixed terminal station 1!
+248 passengers not cleared at temperary terminal 1!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 4 passengers not cleared at fixed terminal station 1!
+ERROR: 5 passengers not cleared at fixed terminal station 17!
+ERROR: 11 passengers not cleared at fixed terminal station 52!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 3 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 5 passengers not cleared at fixed terminal station 1!
+418 passengers not cleared at temperary terminal 52!
+ERROR: 8 passengers not cleared at fixed terminal station 17!
+500 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 1 passengers not cleared at fixed terminal station 1!
+ERROR: 26 passengers not cleared at fixed terminal station 44!
+499 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 28!
+ERROR: 6 passengers not cleared at fixed terminal station 17!
+ERROR: 26 passengers not cleared at fixed terminal station 1!
+48 passengers not cleared at temperary terminal 44!
+ERROR: 8 passengers not cleared at fixed terminal station 1!
+ERROR: 6 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 26!
+500 passengers not cleared at temperary terminal 28!
+ERROR: 9 passengers not cleared at fixed terminal station 44!
+ERROR: 17 passengers not cleared at fixed terminal station 17!
+500 passengers not cleared at temperary terminal 28!
+ERROR: 12 passengers not cleared at fixed terminal station 44!
+65 passengers not cleared at temperary terminal 76!
+500 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 8 passengers not cleared at fixed terminal station 44!
+468 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 28!
+ERROR: 13 passengers not cleared at fixed terminal station 1!
+ERROR: 9 passengers not cleared at fixed terminal station 44!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 28!
+ERROR: 3 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 14 passengers not cleared at fixed terminal station 17!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 12 passengers not cleared at fixed terminal station 1!
+ERROR: 35 passengers not cleared at fixed terminal station 44!
+ERROR: 13 passengers not cleared at fixed terminal station 1!
+497 passengers not cleared at temperary terminal 28!
+288 passengers not cleared at temperary terminal 1!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 28!
+ERROR: 3 passengers not cleared at fixed terminal station 17!
+ERROR: 33 passengers not cleared at fixed terminal station 17!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 28 passengers not cleared at fixed terminal station 1!
+53 passengers not cleared at temperary terminal 44!
+500 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 1!
+ERROR: 24 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 26!
+500 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 28!
+ERROR: 8 passengers not cleared at fixed terminal station 1!
+499 passengers not cleared at temperary terminal 28!
+ERROR: 2 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 26!
+500 passengers not cleared at temperary terminal 28!
+ERROR: 17 passengers not cleared at fixed terminal station 17!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 1 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 28!
+ERROR: 8 passengers not cleared at fixed terminal station 44!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 10 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 26!
+500 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 26!
+500 passengers not cleared at temperary terminal 28!
+ERROR: 8 passengers not cleared at fixed terminal station 1!
+ERROR: 28 passengers not cleared at fixed terminal station 17!
+ERROR: 28 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 26!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 15 passengers not cleared at fixed terminal station 44!
+500 passengers not cleared at temperary terminal 28!
+ERROR: 15 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 28!
+ERROR: 1 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 28!
+60 passengers not cleared at temperary terminal 22!
+ERROR: 31 passengers not cleared at fixed terminal station 17!
+499 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 23 passengers not cleared at fixed terminal station 44!
+500 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 1!
+491 passengers not cleared at temperary terminal 28!
+119 passengers not cleared at temperary terminal 17!
+ERROR: 20 passengers not cleared at fixed terminal station 1!
+497 passengers not cleared at temperary terminal 28!
+493 passengers not cleared at temperary terminal 22!
+500 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 28!
+498 passengers not cleared at temperary terminal 28!
+ERROR: 23 passengers not cleared at fixed terminal station 17!
+500 passengers not cleared at temperary terminal 28!
+140 passengers not cleared at temperary terminal 17!
+500 passengers not cleared at temperary terminal 28!
+ERROR: 28 passengers not cleared at fixed terminal station 44!
+499 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 26!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 24 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 22!
+500 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 28!
+ERROR: 40 passengers not cleared at fixed terminal station 17!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 28 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 18 passengers not cleared at fixed terminal station 44!
+ERROR: 40 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 26!
+82 passengers not cleared at temperary terminal 22!
+494 passengers not cleared at temperary terminal 28!
+ERROR: 17 passengers not cleared at fixed terminal station 44!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 37 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 52!
+498 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 52!
+49 passengers not cleared at temperary terminal 44!
+500 passengers not cleared at temperary terminal 1!
+500 passengers not cleared at temperary terminal 22!
+500 passengers not cleared at temperary terminal 52!
+494 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 1!
+ERROR: 45 passengers not cleared at fixed terminal station 17!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 28!
+ERROR: 51 passengers not cleared at fixed terminal station 44!
+500 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 29 passengers not cleared at fixed terminal station 1!
+135 passengers not cleared at temperary terminal 22!
+494 passengers not cleared at temperary terminal 52!
+ERROR: 4 passengers not cleared at fixed terminal station 1!
+ERROR: 32 passengers not cleared at fixed terminal station 17!
+500 passengers not cleared at temperary terminal 52!
+498 passengers not cleared at temperary terminal 28!
+ERROR: 29 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 83 passengers not cleared at fixed terminal station 44!
+462 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 26!
+500 passengers not cleared at temperary terminal 26!
+208 passengers not cleared at temperary terminal 22!
+ERROR: 29 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 52!
+498 passengers not cleared at temperary terminal 50!
+304 passengers not cleared at temperary terminal 28!
+ERROR: 5 passengers not cleared at fixed terminal station 17!
+102 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 76!
+500 passengers not cleared at temperary terminal 26!
+172 passengers not cleared at temperary terminal 1!
+ERROR: 46 passengers not cleared at fixed terminal station 44!
+500 passengers not cleared at temperary terminal 52!
+75 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 22!
+41 passengers not cleared at temperary terminal 22!
+486 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 52!
+ERROR: 2 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 52!
+69 passengers not cleared at temperary terminal 52!
+10 passengers not cleared at temperary terminal 50!
+ERROR: 17 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 26!
+500 passengers not cleared at temperary terminal 26!
+500 passengers not cleared at temperary terminal 26!
+494 passengers not cleared at temperary terminal 26!
+53 passengers not cleared at temperary terminal 50!
+ERROR: 9 passengers not cleared at fixed terminal station 17!
+336 passengers not cleared at temperary terminal 52!
+ERROR: 3 passengers not cleared at fixed terminal station 44!
+ERROR: 9 passengers not cleared at fixed terminal station 1!
+494 passengers not cleared at temperary terminal 26!
+95 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 26!
+117 passengers not cleared at temperary terminal 22!
+63 passengers not cleared at temperary terminal 52!
+ERROR: 33 passengers not cleared at fixed terminal station 17!
+220 passengers not cleared at temperary terminal 52!
+ERROR: 2 passengers not cleared at fixed terminal station 1!
+8 passengers not cleared at temperary terminal 52!
+ERROR: 1 passengers not cleared at fixed terminal station 44!
+490 passengers not cleared at temperary terminal 26!
+500 passengers not cleared at temperary terminal 22!
+ERROR: 33 passengers not cleared at fixed terminal station 1!
+10 passengers not cleared at temperary terminal 29!
+5 passengers not cleared at temperary terminal 52!
+ERROR: 2 passengers not cleared at fixed terminal station 17!
+495 passengers not cleared at temperary terminal 26!
+1 passengers not cleared at temperary terminal 28!
+ERROR: 1 passengers not cleared at fixed terminal station 1!
+ERROR: 4 passengers not cleared at fixed terminal station 44!
+491 passengers not cleared at temperary terminal 26!
+39 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 19 passengers not cleared at fixed terminal station 17!
+52 passengers not cleared at temperary terminal 52!
+51 passengers not cleared at temperary terminal 52!
+ERROR: 4 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 18 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 26!
+187 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 26!
+8 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 11 passengers not cleared at fixed terminal station 17!
+45 passengers not cleared at temperary terminal 52!
+ERROR: 2 passengers not cleared at fixed terminal station 44!
+61 passengers not cleared at temperary terminal 52!
+ERROR: 7 passengers not cleared at fixed terminal station 1!
+ERROR: 7 passengers not cleared at fixed terminal station 17!
+91 passengers not cleared at temperary terminal 52!
+ERROR: 2 passengers not cleared at fixed terminal station 1!
+ERROR: 5 passengers not cleared at fixed terminal station 44!
+ERROR: 7 passengers not cleared at fixed terminal station 1!
+14 passengers not cleared at temperary terminal 52!
+473 passengers not cleared at temperary terminal 26!
+ERROR: 1 passengers not cleared at fixed terminal station 44!
+ERROR: 6 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 26!
+100 passengers not cleared at temperary terminal 52!
+ERROR: 3 passengers not cleared at fixed terminal station 44!
+ERROR: 19 passengers not cleared at fixed terminal station 44!
+500 passengers not cleared at temperary terminal 26!
+45 passengers not cleared at temperary terminal 22!
+1 passengers not cleared at temperary terminal 52!
+31 passengers not cleared at temperary terminal 52!
+28 passengers not cleared at temperary terminal 52!
+497 passengers not cleared at temperary terminal 26!
+ERROR: 22 passengers not cleared at fixed terminal station 1!
+ERROR: 2 passengers not cleared at fixed terminal station 44!
+500 passengers not cleared at temperary terminal 26!
+43 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 26!
+2 passengers not cleared at temperary terminal 44!
+ERROR: 6 passengers not cleared at fixed terminal station 44!
+4 passengers not cleared at temperary terminal 28!
+499 passengers not cleared at temperary terminal 26!
+19 passengers not cleared at temperary terminal 1!
+483 passengers not cleared at temperary terminal 26!
+50 passengers not cleared at temperary terminal 52!
+ERROR: 7 passengers not cleared at fixed terminal station 1!
+ERROR: 1 passengers not cleared at fixed terminal station 44!
+474 passengers not cleared at temperary terminal 26!
+13 passengers not cleared at temperary terminal 1!
+86 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 1 passengers not cleared at fixed terminal station 17!
+ERROR: 1 passengers not cleared at fixed terminal station 1!
+80 passengers not cleared at temperary terminal 28!
+ERROR: 2 passengers not cleared at fixed terminal station 44!
+41 passengers not cleared at temperary terminal 1!
+68 passengers not cleared at temperary terminal 52!
+1 passengers not cleared at temperary terminal 17!
+500 passengers not cleared at temperary terminal 26!
+19 passengers not cleared at temperary terminal 28!
+90 passengers not cleared at temperary terminal 52!
+487 passengers not cleared at temperary terminal 26!
+414 passengers not cleared at temperary terminal 1!
+ERROR: 6 passengers not cleared at fixed terminal station 17!
+479 passengers not cleared at temperary terminal 26!
+6 passengers not cleared at temperary terminal 28!
+35 passengers not cleared at temperary terminal 52!
+ERROR: 3 passengers not cleared at fixed terminal station 44!
+500 passengers not cleared at temperary terminal 22!
+ERROR: 1 passengers not cleared at fixed terminal station 1!
+ERROR: 7 passengers not cleared at fixed terminal station 1!
+62 passengers not cleared at temperary terminal 52!
+24 passengers not cleared at temperary terminal 52!
+483 passengers not cleared at temperary terminal 26!
+30 passengers not cleared at temperary terminal 1!
+ERROR: 12 passengers not cleared at fixed terminal station 17!
+ERROR: 3 passengers not cleared at fixed terminal station 1!
+ERROR: 3 passengers not cleared at fixed terminal station 44!
+ERROR: 10 passengers not cleared at fixed terminal station 1!
+ERROR: 12 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 26!
+3 passengers not cleared at temperary terminal 52!
+492 passengers not cleared at temperary terminal 26!
+ERROR: 1 passengers not cleared at fixed terminal station 1!
+ERROR: 13 passengers not cleared at fixed terminal station 17!
+15 passengers not cleared at temperary terminal 28!
+29 passengers not cleared at temperary terminal 52!
+ERROR: 3 passengers not cleared at fixed terminal station 1!
+46 passengers not cleared at temperary terminal 1!
+ERROR: 14 passengers not cleared at fixed terminal station 44!
+500 passengers not cleared at temperary terminal 26!
+16 passengers not cleared at temperary terminal 52!
+ERROR: 13 passengers not cleared at fixed terminal station 1!
+39 passengers not cleared at temperary terminal 52!
+258 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 26!
+496 passengers not cleared at temperary terminal 26!
+ERROR: 14 passengers not cleared at fixed terminal station 1!
+32 passengers not cleared at temperary terminal 52!
+ERROR: 2 passengers not cleared at fixed terminal station 1!
+ERROR: 4 passengers not cleared at fixed terminal station 44!
+201 passengers not cleared at temperary terminal 52!
+ERROR: 1 passengers not cleared at fixed terminal station 1!
+500 passengers not cleared at temperary terminal 26!
+142 passengers not cleared at temperary terminal 52!
+25 passengers not cleared at temperary terminal 1!
+279 passengers not cleared at temperary terminal 28!
+500 passengers not cleared at temperary terminal 26!
+ERROR: 20 passengers not cleared at fixed terminal station 44!
+488 passengers not cleared at temperary terminal 26!
+2 passengers not cleared at temperary terminal 28!
+183 passengers not cleared at temperary terminal 28!
+475 passengers not cleared at temperary terminal 26!
+ERROR: 18 passengers not cleared at fixed terminal station 44!
+18 passengers not cleared at temperary terminal 28!
+34 passengers not cleared at temperary terminal 52!
+500 passengers not cleared at temperary terminal 26!
+495 passengers not cleared at temperary terminal 26!
+isFinished:			TRUE
+totalTravelTime (h):		1.64645e+06
+totalDelay (h):		1.54679e+06
+# passenger departed:	514045
+# passenger arrived:		314413
+average travel time (min):	192.176

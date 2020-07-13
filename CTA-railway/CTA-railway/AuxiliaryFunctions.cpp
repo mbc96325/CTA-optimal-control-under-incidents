@@ -33,47 +33,6 @@ int Simulation::getNextStation(int from, int to, int lineID) {
 	return nextStation;
 }
 
-// if it is the OD just put into the system, lineID should be -1
-Policy Simulation::getPolicy(int from, int to, int lineID) {
-	int num = policy_num[from][to];
-	int nextStation;
-	int dir;
-	bool transfer = true;
-	if (num == 1) {
-		nextStation = policy[from][to][0];
-	}
-	else {
-		for (int i = 0; i < num; i++) {
-			nextStation = policy[from][to][i];
-			// if there is an optimal solution on the same line, abandon the transfer
-			if (stations[nextStation].lineID == lineID) {
-				transfer = false;
-				break;
-			}
-		}
-		if (transfer) {
-			// randomly choose a station to transfer to
-			nextStation = policy[from][to][rand() % num];
-		}
-	}
-	dir = directions[from][nextStation];
-	if (dir != -1) { // no need to transfer
-		Policy result = { dir, -1, -1 };
-		return result;
-	}
-	else {	// need to transfer
-		// here we assume a passenger won't transfer twice continuously
-		// also assume there's only one shortest path after transfer
-		int nextNextStation = policy[nextStation][to][0];
-		dir = directions[nextStation][nextNextStation];
-		if (dir == -1) {
-			cout << "continuous transfer at station " << nextStation << "!\n";
-		}
-		Policy result = { -1, nextStation, dir };
-		return result;
-	}
-}
-
 // the function to add new OD pairs to the queues of stations
 // NOTE: check the real station before use this function!
 // the 'from' station must be the real station to get on the train
@@ -92,9 +51,11 @@ void Simulation::addPassengers(int from, int to, int num) {
 
 	// push the passengers into the queue, update avg_inStationTime
 	double queue_len = (double)station->queueSize[direction];
-	double new_len = queue_len + (double)num;
-	station->avg_inStationTime[direction] = (queue_len * station->avg_inStationTime[direction]\
-		+ (double)num * time) / new_len;
+	double new_len = queue_len + double(num);
+	station->avg_inStationTime[direction] = (queue_len * station->avg_inStationTime[direction] + double(num) * time) / new_len;
+	// debug
+	if (station->avg_inStationTime[direction] > time)
+		cout << "ERROR: time error!\n";
 	WaitingPassengers passengers;
 
 	//passengers.arrivingTime = time;
@@ -147,16 +108,27 @@ Report Simulation::report() {
 		result.isFinished = true;
 	result.totalDelay = totalDelay;
 	result.totalTravelTime = totalTravelTime;
+	result.numArrived = num_arrived;
+	result.numDeparted = num_departed;
 
 	return result;
+}
+
+// get the delay contributed by a station (a direction)
+double Simulation::getStationDelay(int stationID, int direction) {
+	return stations[stationID].delay[direction];
 }
 
 // the function of Report
 void Report::show() {
 	if (isFinished)
-		std::cout << "isFinished:\t" << "TRUE" << "\n";
+		cout << "isFinished:\t\t\t" << "TRUE" << "\n";
 	else
-		std::cout << "isFinished:\t" << "FALSE" << "\n";
-	std::cout << "totalTravelTime:" << totalTravelTime << "\n";
-	std::cout << "totalDelay:\t" << totalDelay << "\n";
+		cout << "isFinished:\t\t\t" << "FALSE" << "\n";
+	cout << "totalTravelTime (h):\t\t" << totalTravelTime/3600.0 << "\n";
+	cout << "totalDelay (h):\t\t" << totalDelay/3600.0 << "\n";
+	cout << "# passenger departed:\t" << numDeparted << "\n";
+	cout << "# passenger arrived:\t\t" << numArrived << "\n";
+	cout << "average travel time (min):\t" << totalTravelTime / double(numDeparted * 60) << endl;
 }
+

@@ -8,10 +8,10 @@
 #include <vector>
 #include <string>
 
-#define TOTAL_STATIONS 252	// 需要改成init中来初始化
+#define TOTAL_STATIONS 252	// 最好改成class成员变量，在init中初始化
 #define DEFAULT_CAPACITY 500
 #define WARMUP_PERIOD 0
-#define TOTAL_SIMULATION_TIME 36000
+#define TOTAL_SIMULATION_TIME 90000
 #define MAX_TRANSFER 8
 #define MAX_POLICY_NUM 1	// the largest possible num of optimal policy from station i to station j
 
@@ -26,15 +26,10 @@ typedef std::queue<WaitingPassengers> Q;
 //typedef std::vector<int> transfer_list;
 
 enum EventType {
-	// only three types of events are considered in the simulation
-	// ARRIVAL is the arrival of a train
-	// SUSPEND is to suspend the program to wait for the RL model's new input
-	// NEW_OD is to add new passengers (including the transfer passengers) to 
-	//			the queues of the stations.
-	// TRANSFER is to add future OD of transfer passengers
-	ARRIVAL,
-	SUSPEND,
-	NEW_OD
+	// only three types of events are considered in the simulation at present
+	ARRIVAL,	// the arrival of a train
+	SUSPEND,	// to suspend the program to wait for the RL model's new input
+	NEW_OD		// to add new OD pairs (including the transfer passengers)
 };
 
 struct WaitingPassengers {
@@ -43,24 +38,25 @@ struct WaitingPassengers {
 	int destination;
 };
 
-// the struct to depict the decision a passenger will make at a situation.
-struct Policy { // itenerary
-	int direction;
-	int transferStation;
-	int transferDirection;
-};
+//// the struct to depict the decision a passenger will make at a situation.
+//struct Policy { // itenerary
+//	int direction;
+//	int transferStation;
+//	int transferDirection;
+//};
 
-// Event Class
-class Event {
+// Event
+struct Event {
 	// the base class for events
-public:
-	EventType type;	// the type of the event
+	EventType type;			// the type of the event
 	double time;			// the happening time of the event, in the unit of sec
-	int** OD = NULL;		// if is the global OD, it will be a matrix
 	int from, to, num;		// if is a transfer OD, use the compact format of [int from, int to, int num]
-	Train* train = NULL;
-
-	Event(double t, EventType type = ARRIVAL) : time(t), type(type) { }
+	Train* train;			// handle of the arriving train
+	bool isTransfer;		// mark if the OD is from a transfer behavior
+	
+	// init function
+	Event(double t, EventType type = ARRIVAL, bool isTransfer = false) : time(t), type(type), from(-1), to(-1),\
+		num(0), train(NULL), isTransfer(isTransfer) { }
 };
 
 //Compare events for Priority Queue
@@ -74,13 +70,17 @@ class Station {
 	// Each station in the system has a unique ID. For the transfer stations, consider there are 
 	// several independent stations in each line, which have different IDs.
 public:
+	// static
 	int ID;					// station ID
 	int lineID;				// line ID
 	bool isTerminal[2];		// if the station is the terminal station
 	bool isTransfer;		// if the station is a transfer station
-	int queueSize[2];		// record the number of passengers waiting in the queues of both directions
+
+	// variable
 	Q queue[2];				// passenger queues for both directions
+	int queueSize[2];		// record the number of passengers waiting in the queues of both directions
 	double avg_inStationTime[2];	//avg arriving time of passengers in the queue, used for delay calculation
+	double delay[2];		// delay contributed by the direction
 
 	Station(int ID, int lineID, bool isTerminalInDir0, bool isTerminalInDir1, bool isTransfer = false) : \
 		ID(ID), lineID(lineID), isTransfer(isTransfer) {
@@ -90,6 +90,8 @@ public:
 		queueSize[1] = 0;
 		avg_inStationTime[0] = 0.0;
 		avg_inStationTime[1] = 0.0;
+		delay[0] = 0.0;
+		delay[1] = 0.0;
 	}
 
 	int getQueueNum(int direction) {
@@ -118,6 +120,7 @@ struct Train {
 class Simulation {
 public:
 	double time;			// the system time in the unit of sec
+	double _last_time;		// record the last time so to monitor the system
 	double totalTravelTime;	// including on- and off- train time
 	double totalDelay;		// the off-train delay, namely the waiting time in the station queue
 	int num_departed;		// number of passengers put into the system
@@ -170,6 +173,7 @@ public:
 	void addEvent(Event newevent) {
 		EventQueue.push(newevent);
 	}
+	double getStationDelay(int stationID, int direction);
 
 
 protected:
@@ -180,7 +184,7 @@ protected:
 	int* stationID_iter;	// iterator to iterate the arrivalStationID matrix
 
 	Report report();	// return the system information
-	Policy getPolicy(int from, int to, int lineID);	// return the optimal traveling policy
+	//Policy getPolicy(int from, int to, int lineID);	// return the optimal traveling policy
 	int getNextStation(int from, int to, int lineID);	// return the next station to go
 
 	//**************************************************************************************
@@ -200,5 +204,7 @@ struct Report {
 	bool isFinished;
 	double totalTravelTime;
 	double totalDelay;
+	int numDeparted;
+	int numArrived;
 	void show();
 };

@@ -13,14 +13,16 @@ num_departed修正...done!
 查询下一站站点和到站时间的函数...done!
 
 跑起来...done!
-验证结果合理性
-考虑warm-up period
 将OD和Transfer时间类型进行整合...done!
-direction用到的地方都加上-1判断
 重构功能函数 getNextStation (getPolicy), getRealStation, addPassengers{
 	getNextStation: 解决人的随机路线问题，反馈下一个站去哪就行...done!
 	getRealStation: 利用getPolicy，找到最终上车(也可能是目的地）的那个站，并反馈换乘行走用时...done!
 	addPassengers:  立即将passengers加到车站的队列中...done!
-	理一遍代码，利用以上三个函数完成各种转乘和加入新OD等功能
-}
-出发人数和到达人数的统计存在问题
+	理一遍代码，利用以上三个函数完成各种转乘和加入新OD等功能...done!
+}...done!
+
+direction用到的地方都加上-1判断
+出发人数和到达人数的统计存在问题...done!
+验证结果合理性
+考虑warm-up period
+加上INCIDENT事件

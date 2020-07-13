@@ -160,6 +160,7 @@ void Simulation::init() {
 // reset/init the simulation state using loaded data.
 void Simulation::reset() {
 	time = 0.0;
+	_last_time = 0.0;
 	totalTravelTime = 0.0;
 	totalDelay = 0.0;
 	num_departed = 0;
@@ -199,14 +200,11 @@ void Simulation::reset() {
 		int D = (*iter_row)[1];
 		int number = (*iter_row)[2];
 		int time = (*iter_row)[3];
-		Event newODEvent(double(time), NEW_OD);
+		Event newODEvent(double(time), NEW_OD, false);
 		newODEvent.from = O;
 		newODEvent.to = D;
 		newODEvent.num = number;
 		EventQueue.push(newODEvent);
-		// debug
-		/*if (O == 92 && D == 15)
-			cout << "wocao!\n";*/
 	}
 
 	// renew the stations (queues)
@@ -218,7 +216,11 @@ void Simulation::reset() {
 			stations[i].queue[1].pop();
 
 		// reset avg_inStationTime
+		stations[i].queueSize[0] = 0;
+		stations[i].queueSize[1] = 0;
 		stations[i].avg_inStationTime[0] = 0.0;
 		stations[i].avg_inStationTime[1] = 0.0;
+		stations[i].delay[0] = 0.0;
+		stations[i].delay[1] = 0.0;
 	}
 }

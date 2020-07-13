@@ -50,5 +50,20 @@ extern "C" {
 		return report.totalDelay;
 	}
 
+	_declspec(dllexport) double getStationDelay(int stationID, int direction) {
+		return Sim.getStationDelay(stationID, direction);
+	}
 
+	_declspec(dllexport) void addSuspend(double suspendTime) {
+		Event newSuspend(suspendTime, SUSPEND);
+		Sim.addEvent(newSuspend);
+	}
+
+	_declspec(dllexport) void addOD(double time, int from, int to, int num) {
+		Event newODEvent(time, NEW_OD, false);
+		newODEvent.from = from;
+		newODEvent.to = to;
+		newODEvent.num = num;
+		Sim.addEvent(newODEvent);
+	}
 }
