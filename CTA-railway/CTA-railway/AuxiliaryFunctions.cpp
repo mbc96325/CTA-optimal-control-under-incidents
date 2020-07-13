@@ -58,11 +58,11 @@ void Simulation::addPassengers(int from, int to, int num) {
 		cout << "ERROR: time error!\n";
 	WaitingPassengers passengers;
 
-	//passengers.arrivingTime = time;
 	passengers.destination = to;
 	passengers.numPassengers = num;
 	station->queue[direction].push(passengers);
 	station->queueSize[direction] += num;
+	station->numPass[direction] += num;
 }
 
 // Return the real station to get on the train after transfer, the transfer time will be returned by reference _transfer_time
@@ -117,6 +117,14 @@ Report Simulation::report() {
 // get the delay contributed by a station (a direction)
 double Simulation::getStationDelay(int stationID, int direction) {
 	return stations[stationID].delay[direction];
+}
+
+int Simulation::getStationPass(int stationID, int direction) {
+	return stations[stationID].numPass[direction];
+}
+
+int Simulation::getStationWaitingPassengers(int stationID, int direction) {
+	return stations[stationID].queueSize[direction];
 }
 
 // the function of Report

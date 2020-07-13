@@ -8,7 +8,6 @@ int main() {
 
 	Report report = myFirstSim.run();
 	report.show();
-
 	return 0;
 }
 
@@ -52,6 +51,14 @@ extern "C" {
 
 	_declspec(dllexport) double getStationDelay(int stationID, int direction) {
 		return Sim.getStationDelay(stationID, direction);
+	}
+
+	_declspec(dllexport) int getStationPass(int stationID, int direction) {
+		return Sim.getStationPass(stationID, direction);
+	}
+
+	_declspec(dllexport) int getStationWaitingPassengers(int stationID, int direction) {
+		return Sim.getStationWaitingPassengers(stationID, direction);
 	}
 
 	_declspec(dllexport) void addSuspend(double suspendTime) {

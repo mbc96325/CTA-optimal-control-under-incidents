@@ -11,7 +11,7 @@
 #define TOTAL_STATIONS 252	// 最好改成class成员变量，在init中初始化
 #define DEFAULT_CAPACITY 500
 #define WARMUP_PERIOD 0
-#define TOTAL_SIMULATION_TIME 90000
+#define TOTAL_SIMULATION_TIME 91000
 #define MAX_TRANSFER 8
 #define MAX_POLICY_NUM 1	// the largest possible num of optimal policy from station i to station j
 
@@ -81,6 +81,7 @@ public:
 	int queueSize[2];		// record the number of passengers waiting in the queues of both directions
 	double avg_inStationTime[2];	//avg arriving time of passengers in the queue, used for delay calculation
 	double delay[2];		// delay contributed by the direction
+	int numPass[2];			// count of passengers entered this direction's queue
 
 	Station(int ID, int lineID, bool isTerminalInDir0, bool isTerminalInDir1, bool isTransfer = false) : \
 		ID(ID), lineID(lineID), isTransfer(isTransfer) {
@@ -174,7 +175,10 @@ public:
 		EventQueue.push(newevent);
 	}
 	double getStationDelay(int stationID, int direction);
+	int getStationPass(int stationID, int direction);
+	int getStationWaitingPassengers(int stationID, int direction);
 
+	
 
 protected:
 	//Priority Queue for the events

@@ -222,5 +222,7 @@ void Simulation::reset() {
 		stations[i].avg_inStationTime[1] = 0.0;
 		stations[i].delay[0] = 0.0;
 		stations[i].delay[1] = 0.0;
+		stations[i].numPass[0] = 0;
+		stations[i].numPass[1] = 0;
 	}
 }
