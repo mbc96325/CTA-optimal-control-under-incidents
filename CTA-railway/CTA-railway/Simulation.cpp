@@ -97,7 +97,8 @@ Report Simulation::run() {
 				}
 
 				// if not terminal, new passengers board and calculate delay and travel time
-				if (!stations[station].isTerminal[direction] && !trainEnd(trainID)) {
+				// !stations[station].isTerminal[direction] && 
+				if (!trainEnd(trainID)) {
 					Q* passengerQueue = &stations[station].queue[direction];
 
 					// calculate delay and total travel time
