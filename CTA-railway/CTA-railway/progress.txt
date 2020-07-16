@@ -26,3 +26,5 @@ direction用到的地方都加上-1判断
 验证结果合理性
 考虑warm-up period
 加上INCIDENT事件
+检查delay最大的站
+检查没有人的站
