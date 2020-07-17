@@ -10,15 +10,19 @@ int Simulation::getNextStation(int from, int to, int lineID) {
 		return from;
 	}
 
-	int num = policy_num[from][to];
+	// choose the peak/off-peak hour matrix
+	int** _policy_num = policy_num;
+	int*** _policy = policy_offpeak;
+
+	int num = _policy_num[from][to];
 	int nextStation;
 	bool transfer = true;
 	if (num == 1) {
-		nextStation = policy[from][to][0];
+		nextStation = _policy[from][to][0];
 	}
 	else {
 		for (int i = 0; i < num; i++) {
-			nextStation = policy[from][to][i];
+			nextStation = _policy[from][to][i];
 			// if there is an optimal solution on the same line, abandon the transfer
 			if (stations[nextStation].lineID == lineID) {
 				transfer = false;
@@ -27,7 +31,7 @@ int Simulation::getNextStation(int from, int to, int lineID) {
 		}
 		if (transfer) {
 			// randomly choose a station to transfer to
-			nextStation = policy[from][to][rand() % num];
+			nextStation = _policy[from][to][rand() % num];
 		}
 	}
 	return nextStation;

@@ -136,6 +136,9 @@ public:
 	// considering that there may be several optimal solutions between two stations, at most MAX_POLICY_NUM 
 	// policies can be stored here
 
+	int*** policy_offpeak; //	[TOTAL_STATIONS] [TOTAL_STATIONS] [MAX_POLICY_NUM] = { -1 };
+	// the policy matrix for off-peak hours when the P line is not fully running
+
 	int** directions; //  [TOTAL_STATIONS] [TOTAL_STATIONS] = { -1 };
 	// return the direction from station i to station j
 	// only when i and j are adjacent stations

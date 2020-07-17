@@ -25,6 +25,17 @@ void Simulation::init() {
 		}
 	}
 
+	policy_offpeak = new int** [TOTAL_STATIONS];
+	for (int i = 0; i < TOTAL_STATIONS; i++) {
+		policy_offpeak[i] = new int* [TOTAL_STATIONS];
+		for (int j = 0; j < TOTAL_STATIONS; j++) {
+			policy_offpeak[i][j] = new int[MAX_POLICY_NUM];
+			for (int k = 0; k < MAX_POLICY_NUM; k++) {
+				policy_offpeak[i][j][k] = -1;
+			}
+		}
+	}
+
 	directions = new int* [TOTAL_STATIONS];
 	for (int i = 0; i < TOTAL_STATIONS; i++) {
 		directions[i] = new int[TOTAL_STATIONS];
@@ -48,6 +59,7 @@ void Simulation::init() {
 	str_mat str_AT =			readcsv("data/arrivalTime.csv");		cout << ".";
 	str_mat str_directions =	readcsv("data/directions.csv");			cout << ".";
 	str_mat str_policy =		readcsv("data/policy.csv");				cout << ".";
+	str_mat str_policy_offpeak =readcsv("data/policy2.csv");			cout << ".";
 	str_mat str_policy_num =	readcsv("data/policy_num.csv");			cout << ".";
 	str_mat str_STI =			readcsv("data/startTrainInfo.csv");		cout << ".";
 	str_mat str_stations =		readcsv("data/stations.csv");			cout << ".";
@@ -98,6 +110,22 @@ void Simulation::init() {
 		iter_col++;
 		while (iter_col != (*iter_row).cend()) {
 			policy[from][to][index] = atoi((*iter_col).c_str());
+			index++;
+			iter_col++;
+		}
+	}
+
+	// str_policy_offpeak to policy_offpeak: str_mat (compact format) to 3-d array
+	for (auto iter_row = str_policy_offpeak.cbegin(); iter_row != str_policy_offpeak.cend(); iter_row++)
+	{
+		int from = atoi((*iter_row)[0].c_str());
+		int to = atoi((*iter_row)[1].c_str());
+		int index = 0;
+		auto iter_col = (*iter_row).cbegin();
+		iter_col++;
+		iter_col++;
+		while (iter_col != (*iter_row).cend()) {
+			policy_offpeak[from][to][index] = atoi((*iter_col).c_str());
 			index++;
 			iter_col++;
 		}
