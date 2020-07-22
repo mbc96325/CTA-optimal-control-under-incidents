@@ -1,0 +1,962 @@
+,stop_id,line_id,stop_name,route_id,is_terminal0,is_terminal1,station_id
+0,8830,50,Damen & Waveland,50,False,False,252
+1,8948,50,Damen & Grace,50,False,False,253
+2,8947,50,Damen & Waveland,50,False,False,254
+3,8946,50,Damen & Addison,50,False,False,255
+4,8945,50,Damen & Cornelia,50,False,False,256
+5,8944,50,Damen & Roscoe,50,False,False,257
+6,8943,50,Damen & School,50,False,False,258
+7,8942,50,Damen & Belmont,50,False,False,259
+8,8941,50,Damen & Barry,50,False,False,260
+9,8949,50,Damen & Byron,50,False,False,261
+10,8940,50,Damen & Wellington,50,False,False,262
+11,8938,50,Damen & Clybourn/Diversey,50,False,False,263
+12,18321,50,Damen & Fullerton,50,False,False,264
+13,8935,50,Damen & Webster,50,False,False,265
+14,8934,50,Damen & Dickens,50,False,False,266
+15,8933,50,Damen & Armitage,50,False,False,267
+16,8932,50,Damen & Cortland,50,False,False,268
+17,8931,50,Damen & Churchill,50,False,False,269
+18,8930,50,Damen & Wabansia,50,False,False,270
+19,8939,50,Damen & George,50,False,False,271
+20,8929,50,Damen & Milwaukee/North Ave (Blue Line),50,False,False,272
+21,8951,50,Damen & Irving Park/Lincoln,50,False,False,273
+22,8953,50,Damen & Berteau,50,False,False,274
+23,8969,50,Ashland & Bryn Mawr,50,False,False,275
+24,8623,50,Ashland & Catalpa,50,False,False,276
+25,8622,50,Ashland & Balmoral,50,False,False,277
+26,8621,50,Ashland & Berwyn,50,False,False,278
+27,8620,50,Ashland & Foster,50,False,False,279
+28,4789,50,Foster & Paulina,50,False,False,280
+29,4788,50,Foster & Ravenswood,50,False,False,281
+30,4787,50,Foster & Wolcott,50,False,False,282
+31,8952,50,Damen & Belle Plaine,50,False,False,283
+32,8961,50,Damen & Foster,50,False,False,284
+33,8959,50,Damen & Argyle,50,False,False,285
+34,8958,50,Damen & Ainslie,50,False,False,286
+35,4955,50,Damen & Lawrence,50,False,False,287
+36,4954,50,Damen & Eastwood (Brown Line),50,False,False,288
+37,8957,50,Damen & Wilson,50,False,False,289
+38,8956,50,Damen & Sunnyside,50,False,False,290
+39,8955,50,Damen & Montrose,50,False,False,291
+40,8954,50,Damen & Cullom,50,False,False,292
+41,8960,50,Damen & Winona,50,False,False,293
+42,8970,50,Ashland & Hollywood,50,False,False,294
+43,8928,50,Damen & Le Moyne,50,False,False,295
+44,8926,50,Damen & Evergreen,50,False,False,296
+45,8904,50,Damen & Taylor,50,False,False,297
+46,8905,50,Damen & Polk,50,False,False,298
+47,8906,50,Damen & Ogden,50,False,False,299
+48,8907,50,Damen & Harrison,50,False,False,300
+49,15869,50,Damen Blue Line Station,50,False,False,301
+50,111,50,Damen & Jackson,50,False,False,302
+51,17274,50,Damen & Adams,50,False,False,303
+52,8910,50,Damen & Madison,50,False,False,304
+53,8902,50,Damen & Roosevelt,50,False,False,305
+54,8911,50,Damen & Warren,50,False,False,306
+55,8913,50,Damen & Lake,50,False,False,307
+56,8914,50,Damen & Fulton,50,False,False,308
+57,8915,50,Damen & Carroll,50,False,False,309
+58,8916,50,Damen & Hubbard,50,False,False,310
+59,8917,50,Damen & Grand,50,False,False,311
+60,8918,50,Damen & Ohio,50,False,False,312
+61,8919,50,Damen & Huron,50,False,False,313
+62,8920,50,Damen & Chicago,50,False,False,314
+63,8912,50,Damen & Washington,50,False,False,315
+64,8927,50,Damen & Schiller,50,False,False,316
+65,8901,50,Damen & Roosevelt,50,False,False,317
+66,8899,50,Damen & Hastings,50,False,False,318
+67,8925,50,Damen & Potomac,50,False,False,319
+68,14975,50,Damen & Division,50,False,False,320
+69,8923,50,Damen & Thomas,50,False,False,321
+70,8921,50,Damen & Iowa,50,False,False,322
+71,14135,50,35th/Archer Orange Line Station,50,True,False,323
+72,4433,50,Archer & 35th Street/Hoyne,50,False,False,324
+73,8749,50,Damen & Archer,50,False,False,325
+74,8750,50,Damen & 33rd Street,50,False,False,326
+75,8900,50,Damen & 13th Street,50,False,False,327
+76,8751,50,1559 S Damen,50,False,False,328
+77,8753,50,Damen & Blue Island,50,False,False,329
+78,8891,50,Damen & 23rd Street,50,False,False,330
+79,14489,50,Damen & Cermak,50,False,False,331
+80,15199,50,Damen Pink Line Station,50,False,False,332
+81,8895,50,Damen & 19th Street,50,False,False,333
+82,8896,50,Damen & 18th Street,50,False,False,334
+83,8897,50,Damen & 17th Street,50,False,False,335
+84,8898,50,Damen & 14th Street,50,False,False,336
+85,8752,50,2501 S Damen,50,False,False,337
+86,8805,50,Edgewater & Clark,50,False,True,338
+87,8922,50,Damen & Augusta,50,False,False,339
+88,15132,50,Ashland & Gregory,50,False,False,340
+89,8883,50,Damen & 17th Street,50,False,False,341
+90,8884,50,Damen & 18th Street,50,False,False,342
+91,8885,50,Damen & 19th Street,50,False,False,343
+92,15200,50,Damen Pink Line Station,50,False,False,344
+93,8888,50,Damen & Cermak,50,False,False,345
+94,8889,50,Damen & 23rd Street,50,False,False,346
+95,8890,50,Damen & Coulter,50,False,False,347
+96,14961,50,Damen & Blue Island,50,False,False,348
+97,8882,50,Damen & 14th Street,50,False,False,349
+98,8755,50,2501 S Damen,50,False,False,350
+99,8757,50,Damen & 33rd Street,50,False,False,351
+100,8758,50,Damen & Archer,50,False,False,352
+101,4485,50,Archer & 35th Street/Hoyne,50,False,False,353
+102,4486,50,Leavitt & 35th Street,50,False,False,354
+103,17509,50,35th/Archer Orange Line Station,50,False,False,355
+104,8857,50,Damen & Iowa,50,False,False,356
+105,16045,50,Damen & Augusta,50,False,False,357
+106,8855,50,Damen & Thomas,50,False,False,358
+107,8756,50,2608 S Damen,50,False,False,359
+108,14963,50,Damen & Division,50,False,False,360
+109,8881,50,Damen & Hastings,50,False,False,361
+110,8878,50,Damen & Roosevelt,50,False,False,362
+111,1802,50,Clark & Bryn Mawr,50,False,False,363
+112,8858,50,Damen & Chicago,50,False,False,364
+113,8859,50,Damen & Huron,50,False,False,365
+114,15902,50,Damen & Grand,50,False,False,366
+115,8862,50,Damen & Hubbard,50,False,False,367
+116,8863,50,Damen & Carroll,50,False,False,368
+117,8864,50,Damen & Fulton,50,False,False,369
+118,14962,50,Damen & Lake,50,False,False,370
+119,8880,50,Damen & 13th Street,50,False,False,371
+120,17272,50,Damen & Washington,50,False,False,372
+121,17273,50,Damen & Adams,50,False,False,373
+122,15449,50,Damen & Jackson,50,False,False,374
+123,44,50,Damen & Congress,50,False,False,375
+124,8872,50,Damen & Harrison,50,False,False,376
+125,8873,50,Damen & Ogden,50,False,False,377
+126,8874,50,Damen & Polk,50,False,False,378
+127,8875,50,V.A. Medical Center,50,False,False,379
+128,8876,50,Damen & Taylor,50,False,False,380
+129,17267,50,Damen & Madison,50,False,False,381
+130,8853,50,Damen & Potomac,50,False,False,382
+131,8860,50,Damen & Ohio,50,False,False,383
+132,8851,50,Damen & Schiller,50,False,False,384
+133,8824,50,Damen & Berteau,50,False,False,385
+134,8823,50,Damen & Cullom,50,False,False,386
+135,8822,50,Damen & Montrose,50,False,False,387
+136,8821,50,Damen & Sunnyside,50,False,False,388
+137,8820,50,Damen & Wilson,50,False,False,389
+138,8819,50,Damen & Eastwood (Brown Line),50,False,False,390
+139,15226,50,Damen & Lawrence,50,False,False,391
+140,8817,50,Damen & Ainslie,50,False,False,392
+141,8825,50,Damen & Belle Plaine,50,False,False,393
+142,8816,50,Damen & Argyle,50,False,False,394
+143,8619,50,Damen & Foster,50,False,False,395
+144,4804,50,Foster & Wolcott,50,False,False,396
+145,4803,50,Foster & Ravenswood,50,False,False,397
+146,4802,50,Foster & Paulina,50,False,False,398
+147,8618,50,Ashland & Foster,50,False,False,399
+148,8616,50,Ashland & Balmoral,50,False,False,400
+149,8852,50,Damen & Evergreen,50,False,False,401
+150,8615,50,Ashland & Catalpa,50,False,False,402
+151,8815,50,Damen & Winona,50,False,False,403
+152,8827,50,Damen & Irving Park/Lincoln,50,False,False,404
+153,8617,50,Ashland & Berwyn,50,False,False,405
+154,8829,50,Damen & Grace,50,False,False,406
+155,8828,50,Damen & Byron,50,False,False,407
+156,8847,50,Damen & Wabansia,50,False,False,408
+157,8850,50,Damen & Le Moyne,50,False,False,409
+158,8849,50,Damen & Milwaukee/North Ave (Blue Line),50,False,False,410
+159,8846,50,Damen & Churchill,50,False,False,411
+160,8845,50,Damen & Cortland,50,False,False,412
+161,8844,50,Damen & Armitage,50,False,False,413
+162,8842,50,Damen & Webster,50,False,False,414
+163,8841,50,Damen & Fullerton,50,False,False,415
+164,8843,50,Damen & Dickens,50,False,False,416
+165,8838,50,Damen & George,50,False,False,417
+166,8837,50,Damen & Wellington,50,False,False,418
+167,8836,50,Damen & Barry,50,False,False,419
+168,8835,50,Damen & Belmont,50,False,False,420
+169,8834,50,Damen & School,50,False,False,421
+170,8833,50,Damen & Roscoe,50,False,False,422
+171,8832,50,Damen & Cornelia,50,False,False,423
+172,8831,50,Damen & Addison,50,False,False,424
+173,8839,50,Damen & Clybourn/Diversey,50,False,False,425
+174,3041,52,Kedzie-Homan Blue Line Station,52,False,False,426
+175,3037,52,Kedzie & Monroe,52,False,False,427
+176,3038,52,Kedzie & Adams,52,False,False,428
+177,14599,52,Kedzie & Jackson,52,False,False,429
+178,3040,52,Kedzie & Van Buren,52,False,False,430
+179,17418,52,Kedzie & Harrison,52,False,False,431
+180,3051,52,Kedzie & 15th Street,52,False,False,432
+181,3044,52,Kedzie & Polk,52,False,False,433
+182,17417,52,Kedzie & Arthington,52,False,False,434
+183,15972,52,Kedzie & Fillmore,52,False,False,435
+184,3047,52,Kedzie & Roosevelt,52,False,False,436
+185,3048,52,Kedzie & 13th Street,52,False,False,437
+186,3050,52,Kedzie & Douglas,52,False,False,438
+187,15301,52,Kedzie & 16th Street,52,False,False,439
+188,3053,52,Kedzie & Ogden,52,False,False,440
+189,17420,52,Kedzie & Lexington,52,False,False,441
+190,14598,52,Kedzie & Madison,52,False,False,442
+191,3024,52,Kedzie & Chicago,52,False,False,443
+192,15679,52,Kedzie & Lake (Green Line),52,False,False,444
+193,3015,52,California & Le Moyne,52,False,False,445
+194,3054,52,Kedzie & 19th Street,52,False,False,446
+195,3016,52,California & Hirsch,52,False,False,447
+196,3017,52,California & Evergreen,52,False,False,448
+197,3018,52,California & Potomac,52,False,False,449
+198,3019,52,California & Division,52,False,False,450
+199,3020,52,California & Thomas,52,False,False,451
+200,3021,52,California & Augusta,52,False,False,452
+201,15861,52,California & Walton,52,False,False,453
+202,3023,52,California & Chicago,52,False,False,454
+203,636,52,Chicago & Grand,52,False,False,455
+204,638,52,Chicago & Sacramento,52,False,False,456
+205,3025,52,Kedzie & Huron,52,False,False,457
+206,3026,52,Kedzie & Ohio,52,False,False,458
+207,3028,52,Kedzie & Franklin,52,False,False,459
+208,3030,52,Kedzie & Carroll,52,False,False,460
+209,15989,52,Kedzie & Fulton,52,False,False,461
+210,17593,52,Kedzie & Washington,52,False,False,462
+211,3055,52,Kedzie Pink Line Station,52,False,False,463
+212,17338,52,Kedzie & Archer,52,False,False,464
+213,3057,52,Kedzie & 23rd Street,52,False,False,465
+214,3082,52,Kedzie & 48th Place,52,False,False,466
+215,14128,52,Kedzie Orange Line Station,52,False,False,467
+216,3085,52,5000 S Kedzie,52,False,False,468
+217,3086,52,Kedzie & 51st Street,52,False,False,469
+218,3087,52,Kedzie & 52nd Street,52,False,False,470
+219,17105,52,Kedzie & 53rd Street,52,False,False,471
+220,3089,52,Kedzie & 54th Street,52,False,False,472
+221,3090,52,Kedzie & 55th Street,52,False,False,473
+222,3091,52,Kedzie & 56th Street,52,False,False,474
+223,3092,52,Kedzie & 57th Street,52,False,False,475
+224,3093,52,Kedzie & 58th Street,52,False,False,476
+225,17339,52,Kedzie & 59th Street,52,False,False,477
+226,3095,52,Kedzie & 60th Street,52,False,False,478
+227,17453,52,Kedzie & 61st Street,52,False,False,479
+228,3097,52,Kedzie & 62nd Street,52,False,False,480
+229,16138,52,Kedzie & 63rd Street,52,False,False,481
+230,14973,52,California & North Ave,52,False,False,482
+231,8100,52,Kedzie & 47th Street,52,False,False,483
+232,17416,52,Kedzie & Cermak,52,False,False,484
+233,3079,52,Kedzie & 46th Street,52,False,False,485
+234,3076,52,Kedzie & 43rd Street,52,False,False,486
+235,3058,52,Kedzie & 24th Street,52,False,False,487
+236,3059,52,Kedzie & 25th Street,52,False,False,488
+237,3060,52,Kedzie & 26th Street,52,False,False,489
+238,3061,52,Kedzie & 27th Street,52,False,False,490
+239,3062,52,Kedzie & 28th Street,52,False,False,491
+240,3063,52,Kedzie & 30th Street,52,False,False,492
+241,17448,52,Kedzie & 31st Street,52,False,False,493
+242,3065,52,3201 S Kedzie,52,False,False,494
+243,3066,52,3349 S Kedzie,52,False,False,495
+244,3067,52,3448 S Kedzie,52,False,False,496
+245,3068,52,Kedzie & 36th Street,52,False,False,497
+246,3070,52,3700 S Kedzie,52,False,False,498
+247,17451,52,Kedzie & 38th Street,52,False,False,499
+248,14846,52,Kedzie & Pershing,52,False,False,500
+249,16064,52,Kedzie & 40th Street,52,False,False,501
+250,3074,52,Kedzie & 41st Street,52,False,False,502
+251,3075,52,Kedzie & 42nd Street,52,False,False,503
+252,3078,52,Kedzie & 45th Street,52,False,False,504
+253,3013,52,California & Wabansia,52,False,False,505
+254,7865,52,Belmont & California,52,False,False,506
+255,3011,52,California & Cortland,52,False,False,507
+256,3132,52,3349 S Kedzie,52,False,False,508
+257,3133,52,3201 S Kedzie,52,False,False,509
+258,3134,52,Kedzie & 31st Street,52,False,False,510
+259,3135,52,Kedzie & 30th Street,52,False,False,511
+260,17450,52,Kedzie & 28th Street,52,False,False,512
+261,3137,52,Kedzie & 27th Street,52,False,False,513
+262,17449,52,Kedzie & 26th Street,52,False,False,514
+263,16012,52,Kedzie & 25th Street,52,False,False,515
+264,15941,52,Kedzie & 24th Street,52,False,False,516
+265,3141,52,Kedzie & 23rd Street,52,False,False,517
+266,17415,52,Kedzie & Cermak,52,False,False,518
+267,15973,52,Kedzie Pink Line Station,52,False,False,519
+268,3144,52,Kedzie & 19th Street,52,False,False,520
+269,15168,52,Kedzie & Ogden,52,False,False,521
+270,15169,52,Kedzie & 16th Street,52,False,False,522
+271,3147,52,Kedzie & 15th Street,52,False,False,523
+272,3148,52,Kedzie & Douglas,52,False,False,524
+273,3149,52,Kedzie & Douglas,52,False,False,525
+274,3150,52,Kedzie & 13th Street,52,False,False,526
+275,3152,52,Kedzie & Fillmore,52,False,False,527
+276,3153,52,Kedzie & Arthington,52,False,False,528
+277,3154,52,Kedzie & Polk,52,False,False,529
+278,17419,52,Kedzie & Lexington,52,False,False,530
+279,3156,52,Kedzie & Harrison (Blue Line),52,False,False,531
+280,3158,52,Kedzie & Van Buren,52,False,False,532
+281,3131,52,3426 S Kedzie,52,False,False,533
+282,3130,52,Kedzie & 36th Street,52,False,False,534
+283,3128,52,3700 S Kedzie,52,False,False,535
+284,17452,52,Kedzie & 38th Street,52,False,False,536
+285,3099,52,Kedzie & 63rd Place Terminal,52,True,False,537
+286,14816,52,Kedzie & 63rd Street,52,False,False,538
+287,3101,52,Kedzie & 62nd Street,52,False,False,539
+288,3102,52,Kedzie & 61st Street,52,False,False,540
+289,3103,52,Kedzie & 60th Street,52,False,False,541
+290,3104,52,Kedzie & 59th Street,52,False,False,542
+291,3105,52,Kedzie & 58th Street,52,False,False,543
+292,15953,52,Kedzie & 57th Street,52,False,False,544
+293,3107,52,Kedzie & 56th Street,52,False,False,545
+294,3108,52,Kedzie & 55th Street,52,False,False,546
+295,3109,52,Kedzie & 54th Street,52,False,False,547
+296,3110,52,Kedzie & 53rd Street,52,False,False,548
+297,3159,52,Kedzie & Jackson,52,False,False,549
+298,3111,52,Kedzie & 52nd Street,52,False,False,550
+299,3113,52,5000 S Kedzie,52,False,False,551
+300,17538,52,Kedzie Orange Line Station,52,False,False,552
+301,14127,52,Kedzie Orange Line Station,52,False,False,553
+302,3116,52,Kedzie & 48th Place,52,False,False,554
+303,3118,52,Kedzie & 47th Street,52,False,False,555
+304,3119,52,Kedzie & 46th Street,52,False,False,556
+305,3120,52,Kedzie & 45th Street,52,False,False,557
+306,14503,52,Kedzie & Archer,52,False,False,558
+307,3123,52,Kedzie & 42nd Street,52,False,False,559
+308,3124,52,Kedzie & 41st Street,52,False,False,560
+309,3125,52,Kedzie & 40th Street,52,False,False,561
+310,17341,52,Kedzie & Pershing,52,False,False,562
+311,3112,52,Kedzie & 51st Street,52,False,False,563
+312,3012,52,California & Bloomingdale,52,False,False,564
+313,17594,52,Kedzie & Adams,52,False,False,565
+314,3164,52,Kedzie & Washington,52,False,False,566
+315,3199,52,California & George,52,False,False,567
+316,3200,52,California & Wellington,52,False,False,568
+317,3201,52,California & Barry,52,False,False,569
+318,7866,52,Belmont & Washtenaw,52,False,False,570
+319,7867,52,Belmont & Rockwell,52,False,False,571
+320,12829,52,Rockwell & Devry Parking Lot (3400 N),52,False,False,572
+321,17786,52,Rockwell & Addison,52,False,True,573
+322,12573,52,Addison & Talman,52,False,False,574
+323,17787,52,California & Addison,52,False,False,575
+324,2994,52,California & Roscoe,52,False,False,576
+325,2995,52,California & Melrose,52,False,False,577
+326,2996,52,California & Belmont,52,False,False,578
+327,2997,52,California & Barry,52,False,False,579
+328,2998,52,California & Wellington,52,False,False,580
+329,2999,52,California & George,52,False,False,581
+330,17334,52,California & Diversey,52,False,False,582
+331,3001,52,California & Schubert,52,False,False,583
+332,3002,52,California & Logan,52,False,False,584
+333,3003,52,California & Logan,52,False,False,585
+334,3004,52,California & Altgeld,52,False,False,586
+335,17042,52,California & Fullerton,52,False,False,587
+336,3006,52,California & Milwaukee (Blue Line),52,False,False,588
+337,3007,52,California & Palmer,52,False,False,589
+338,3009,52,California & Dickens,52,False,False,590
+339,3010,52,California & Armitage,52,False,False,591
+340,15218,52,California & Diversey,52,False,False,592
+341,3197,52,California & Schubert,52,False,False,593
+342,3196,52,California & Logan,52,False,False,594
+343,3194,52,California & Altgeld,52,False,False,595
+344,3165,52,Kedzie & Lake (Green Line),52,False,False,596
+345,14600,52,Kedzie & Fulton,52,False,False,597
+346,3170,52,Kedzie & Franklin,52,False,False,598
+347,14601,52,Kedzie & Ohio,52,False,False,599
+348,3173,52,Kedzie & Huron,52,False,False,600
+349,3174,52,Kedzie & Chicago,52,False,False,601
+350,540,52,Chicago & Sacramento,52,False,False,602
+351,543,52,Chicago & Grand,52,False,False,603
+352,3175,52,California & Chicago,52,False,False,604
+353,17153,52,California & Walton,52,False,False,605
+354,17154,52,California & Augusta,52,False,False,606
+355,3178,52,California & Thomas,52,False,False,607
+356,3162,52,Kedzie & Madison,52,False,False,608
+357,14833,52,California & Division,52,False,False,609
+358,3181,52,California & Evergreen,52,False,False,610
+359,3182,52,California & Hirsch,52,False,False,611
+360,3183,52,California & Le Moyne,52,False,False,612
+361,15231,52,California & North Ave,52,False,False,613
+362,3185,52,California & Wabansia,52,False,False,614
+363,3186,52,1750 N California,52,False,False,615
+364,3187,52,California & Cortland,52,False,False,616
+365,3188,52,California & Armitage,52,False,False,617
+366,3189,52,California & Point,52,False,False,618
+367,3191,52,California & Palmer (Blue Line),52,False,False,619
+368,3192,52,California & Milwaukee,52,False,False,620
+369,17337,52,California & Fullerton,52,False,False,621
+370,3180,52,California & Potomac,52,False,False,622
+371,17632,52,Kedzie & Roosevelt,52,False,False,623
+372,14101,56,Jefferson Park Transit Center,56,False,True,624
+373,17038,56,Jefferson Park Transit Center South Drop Off,56,False,False,625
+374,442,56,Washington & Jefferson,56,False,False,626
+375,17772,56,Desplaines & Lake,56,False,False,627
+376,5505,56,Desplaines & Fulton,56,False,False,628
+377,17771,56,Desplaines & Kinzie/Milwaukee,56,False,False,629
+378,5503,56,Milwaukee & Hubbard/Union,56,False,False,630
+379,5502,56,Milwaukee & Grand/Halsted (Blue Line),56,False,False,631
+380,5500,56,Milwaukee & Erie,56,False,False,632
+381,17834,56,Milwaukee & Carpenter,56,False,False,633
+382,5496,56,Milwaukee & Chicago,56,False,False,634
+383,5494,56,Milwaukee & Racine,56,False,False,635
+384,18114,56,Milwaukee & Noble,56,False,False,636
+385,5491,56,Milwaukee & Thomas,56,False,False,637
+386,5490,56,Milwaukee & Haddon,56,False,False,638
+387,5489,56,Milwaukee & Division,56,False,False,639
+388,5487,56,Milwaukee & Paulina,56,False,False,640
+389,15846,56,Milwaukee & Wolcott/Wood,56,False,False,641
+390,17015,56,Milwaukee & Honore,56,False,False,642
+391,443,56,Washington & Canal,56,False,False,643
+392,5481,56,Milwaukee & North Ave/Damen,56,False,False,644
+393,445,56,Washington & Franklin,56,False,False,645
+394,18122,56,Washington & Clark/Dearborn,56,False,False,646
+395,17136,56,Milwaukee & Elston,56,False,False,647
+396,5529,56,Milwaukee & Chicago,56,False,False,648
+397,5527,56,Milwaukee & Carpenter,56,False,False,649
+398,5525,56,Milwaukee & Erie,56,False,False,650
+399,15341,56,Milwaukee & Grand/Halsted (Blue Line),56,False,False,651
+400,17135,56,Milwaukee & Hubbard/Union,56,False,False,652
+401,17773,56,Desplaines & Fulton/Milwaukee/Kinzie,56,False,False,653
+402,5520,56,Fulton & Desplaines,56,False,False,654
+403,5518,56,Jefferson & Lake,56,False,False,655
+404,5516,56,Jefferson & Washington,56,False,False,656
+405,455,56,Madison & Clinton,56,False,False,657
+406,18124,56,Madison & Franklin,56,False,False,658
+407,18123,56,Madison & LaSalle,56,False,False,659
+408,18126,56,Madison & Dearborn/State,56,False,False,660
+409,450,56,Madison & Wabash,56,False,False,661
+410,449,56,Washington & Wabash,56,True,False,662
+411,448,56,Washington & State,56,False,False,663
+412,446,56,Washington & Lasalle,56,False,False,664
+413,18358,56,Milwaukee & Caton,56,False,False,665
+414,15233,56,Milwaukee & Leavitt,56,False,False,666
+415,5478,56,Milwaukee & Oakley/Moffat,56,False,False,667
+416,5450,56,Milwaukee & Addison,56,False,False,668
+417,5448,56,Milwaukee & Kostner,56,False,False,669
+418,5447,56,Milwaukee & Kenneth,56,False,False,670
+419,5446,56,Milwaukee & Kilbourn,56,False,False,671
+420,5445,56,Milwaukee & Kenton,56,False,False,672
+421,5444,56,Milwaukee & Kilpatrick/Byron,56,False,False,673
+422,5443,56,Milwaukee & Irving Park/Cicero,56,False,False,674
+423,5442,56,Milwaukee & Belle Plaine,56,False,False,675
+424,15198,56,Milwaukee & Berteau,56,False,False,676
+425,5440,56,Milwaukee & Cullom,56,False,False,677
+426,14617,56,Milwaukee & Montrose,56,False,False,678
+427,5438,56,Milwaukee & Sunnyside,56,False,False,679
+428,5437,56,Milwaukee & Wilson,56,False,False,680
+429,5436,56,Milwaukee & Laramie,56,False,False,681
+430,5435,56,Milwaukee & Giddings,56,False,False,682
+431,17175,56,Milwaukee & Lawrence,56,False,False,683
+432,3725,56,Milwaukee & Higgins,56,False,False,684
+433,5452,56,Milwaukee & Keeler,56,False,False,685
+434,5454,56,Milwaukee & Karlov,56,False,False,686
+435,15213,56,Milwaukee & Pulaski,56,False,False,687
+436,18424,56,Milwaukee & Belmont,56,False,False,688
+437,17917,56,Milwaukee & Western,56,False,False,689
+438,5476,56,Milwaukee & Armitage,56,False,False,690
+439,5475,56,Milwaukee & Maplewood,56,False,False,691
+440,5474,56,Milwaukee & Francis Place,56,False,False,692
+441,17014,56,Milwaukee & Prindiville,56,False,False,693
+442,17013,56,Milwaukee & California,56,False,False,694
+443,15041,56,Milwaukee & Fullerton,56,False,False,695
+444,5468,56,Milwaukee & Logan Boulevard,56,False,False,696
+445,5533,56,Milwaukee & Noble,56,False,False,697
+446,5467,56,Milwaukee & Kedzie,56,False,False,698
+447,5465,56,Milwaukee & Spaulding,56,False,False,699
+448,17413,56,Milwaukee & Diversey/Kimball,56,False,False,700
+449,5463,56,Milwaukee & Wolfram,56,False,False,701
+450,5462,56,Milwaukee & Gresham,56,False,False,702
+451,15215,56,Milwaukee & Central Park,56,False,False,703
+452,5460,56,Milwaukee & Ridgeway,56,False,False,704
+453,5459,56,Milwaukee & Hamlin,56,False,False,705
+454,5458,56,Milwaukee & Davlin,56,False,False,706
+455,5466,56,Milwaukee & Sawyer,56,False,False,707
+456,5535,56,Milwaukee & Haddon,56,False,False,708
+457,5534,56,Milwaukee & Thomas,56,False,False,709
+458,18359,56,Milwaukee & Paulina,56,False,False,710
+459,5567,56,Milwaukee & Lawndale,56,False,False,711
+460,5566,56,Milwaukee & Monticello,56,False,False,712
+461,15216,56,Milwaukee & Central Park,56,False,False,713
+462,17959,56,Milwaukee & Gresham,56,False,False,714
+463,5563,56,Milwaukee & Wisner,56,False,False,715
+464,5562,56,Milwaukee & Diversey/Kimball,56,False,False,716
+465,5561,56,Milwaukee & Spaulding,56,False,False,717
+466,5560,56,Milwaukee & Sawyer,56,False,False,718
+467,5568,56,Milwaukee & Hamlin,56,False,False,719
+468,5559,56,Milwaukee & Kedzie,56,False,False,720
+469,5558,56,Milwaukee & Logan Boulevard,56,False,False,721
+470,5557,56,Milwaukee & Sacramento,56,False,False,722
+471,15045,56,Milwaukee & Fullerton,56,False,False,723
+472,5554,56,Milwaukee & California,56,False,False,724
+473,5553,56,Milwaukee & Washtenaw,56,False,False,725
+474,5552,56,Milwaukee & Talman,56,False,False,726
+475,5550,56,Milwaukee & Maplewood,56,False,False,727
+476,14564,56,Milwaukee & Armitage,56,False,False,728
+477,15922,56,Milwaukee & Logan Boulevard,56,False,False,729
+478,5537,56,Milwaukee & Ashland/Division (Blue Line),56,False,False,730
+479,5569,56,Milwaukee & Belmont,56,False,False,731
+480,15214,56,Milwaukee & Pulaski,56,False,False,732
+481,5591,56,Milwaukee & Lawrence,56,False,False,733
+482,5590,56,Milwaukee & Giddings,56,False,False,734
+483,5589,56,Milwaukee & Laramie,56,False,False,735
+484,5588,56,Milwaukee & Wilson,56,False,False,736
+485,5587,56,Milwaukee & Sunnyside,56,False,False,737
+486,5586,56,Milwaukee & Montrose,56,False,False,738
+487,5585,56,Milwaukee & Cullom,56,False,False,739
+488,5584,56,Milwaukee & Berteau,56,False,False,740
+489,17477,56,Milwaukee & Springfield,56,False,False,741
+490,17900,56,Milwaukee & Belle Plaine,56,False,False,742
+491,5581,56,Milwaukee & Kilpatrick/Byron,56,False,False,743
+492,5580,56,Milwaukee & Kenton,56,False,False,744
+493,5579,56,Milwaukee & Kilbourn,56,False,False,745
+494,5578,56,Milwaukee & Kostner,56,False,False,746
+495,5577,56,Milwaukee & Waveland,56,False,False,747
+496,15016,56,Milwaukee & Addison,56,False,False,748
+497,18425,56,Milwaukee & Keeler,56,False,False,749
+498,5572,56,Milwaukee & Karlov,56,False,False,750
+499,5582,56,Milwaukee & Irving Park/Cicero,56,False,False,751
+500,5546,56,Milwaukee & Oakley/Moffat,56,False,False,752
+501,5547,56,Milwaukee & Western,56,False,False,753
+502,5544,56,Milwaukee & Wabansia,56,False,False,754
+503,15847,56,Milwaukee & North Ave/Damen,56,False,False,755
+504,17011,56,Milwaukee & Honore,56,False,False,756
+505,15845,56,Milwaukee & Wolcott/Wood,56,False,False,757
+506,5456,56,Milwaukee & Springfield,56,False,False,758
+507,5545,56,Milwaukee & Leavitt,56,False,False,759
+508,987,72,North Ave & Austin,72,False,False,760
+509,986,72,North Ave & Mayfield,72,False,False,761
+510,985,72,North Ave & Menard,72,False,False,762
+511,984,72,North Ave & Major,72,False,False,763
+512,15283,72,North Ave & Central,72,False,False,764
+513,17864,72,North Ave & Linder,72,False,False,765
+514,981,72,North Ave & Long,72,False,False,766
+515,980,72,North Ave & Lockwood,72,False,False,767
+516,977,72,North Ave & Lavergne,72,False,False,768
+517,978,72,North Ave & Leclaire,72,False,False,769
+518,976,72,North Ave & Lamon,72,False,False,770
+519,975,72,North Ave & Cicero,72,False,False,771
+520,923,72,North Ave & Clark Terminal,72,False,True,772
+521,918,72,North Ave & Sedgwick (Brown Line),72,False,False,773
+522,920,72,North Ave & Wells,72,False,False,774
+523,919,72,North Ave & North Park,72,False,False,775
+524,979,72,North Ave & Laramie,72,False,False,776
+525,988,72,North Ave & Meade,72,False,False,777
+526,992,72,North Ave & Narragansett,72,False,False,778
+527,990,72,North Ave & Merrimac,72,False,False,779
+528,927,72,North Ave & Sedgwick (Brown Line),72,False,False,780
+529,926,72,North Ave & Wells,72,False,False,781
+530,924,72,North Ave & Clark,72,False,False,782
+531,14171,72,North Ave & Narragansett Terminal,72,False,False,783
+532,845,72,Neva & North Ave,72,True,False,784
+533,1005,72,Wabansia & Neva,72,False,False,785
+534,1004,72,Harlem & Wabansia,72,False,False,786
+535,1002,72,Harlem & North Ave,72,False,False,787
+536,1001,72,North Ave & Neva,72,False,False,788
+537,1000,72,North Ave & Nordica,72,False,False,789
+538,999,72,North Ave & Sayre,72,False,False,790
+539,998,72,North Ave & New England,72,False,False,791
+540,997,72,North Ave & Oak Park,72,False,False,792
+541,996,72,North Ave & Natoma,72,False,False,793
+542,15276,72,North Ave & LaSalle,72,False,False,794
+543,16102,72,North Ave & Natchez,72,False,False,795
+544,993,72,North Ave & Nagle,72,False,False,796
+545,989,72,North Ave & Melvina,72,False,False,797
+546,917,72,North Ave & Cleveland,72,False,False,798
+547,17126,72,North Ave & Throop,72,False,False,799
+548,915,72,North Ave & Orchard,72,False,False,800
+549,887,72,North Ave & Albany,72,False,False,801
+550,17125,72,North Ave & Kedzie,72,False,False,802
+551,885,72,North Ave & Spaulding,72,False,False,803
+552,14831,72,North Ave & Kimball/Homan,72,False,False,804
+553,883,72,North Ave & St. Louis,72,False,False,805
+554,882,72,North Ave & Central Park,72,False,False,806
+555,881,72,North Ave & Lawndale,72,False,False,807
+556,880,72,North Ave & Hamlin,72,False,False,808
+557,879,72,North Ave & Springfield,72,False,False,809
+558,15149,72,North Ave & Pulaski,72,False,False,810
+559,15483,72,North Ave & Karlov,72,False,False,811
+560,18476,72,North Ave & Keeler,72,False,False,812
+561,875,72,North Ave & Grand,72,False,False,813
+562,874,72,North Ave & Kostner,72,False,False,814
+563,18475,72,North Ave & Kolmar,72,False,False,815
+564,871,72,North Ave & Kilpatrick,72,False,False,816
+565,870,72,North Ave & Cicero,72,False,False,817
+566,888,72,North Ave & Humboldt,72,False,False,818
+567,916,72,North Ave & Larrabee,72,False,False,819
+568,889,72,North Ave & Francisco,72,False,False,820
+569,891,72,North Ave & Washtenaw,72,False,False,821
+570,913,72,North Ave & Clybourn/Halsted (Red Line),72,False,False,822
+571,15376,72,North Ave & Fremont,72,False,False,823
+572,910,72,North Ave & Sheffield,72,False,False,824
+573,928,72,North Ave & Cleveland,72,False,False,825
+574,15375,72,North Ave & Elston,72,False,False,826
+575,903,72,North Ave & Bosworth,72,False,False,827
+576,902,72,North Ave & Ashland,72,False,False,828
+577,901,72,North Ave & Paulina,72,False,False,829
+578,900,72,North Ave & Wood,72,False,False,830
+579,899,72,North Ave & Wolcott,72,False,False,831
+580,898,72,North Ave & Milwaukee/Damen (Blue Line),72,False,False,832
+581,897,72,North Ave & Hoyne,72,False,False,833
+582,896,72,North Ave & Leavitt,72,False,False,834
+583,895,72,North Ave & Oakley,72,False,False,835
+584,894,72,North Ave & Western,72,False,False,836
+585,893,72,North Ave & Campbell,72,False,False,837
+586,15958,72,North Ave & Rockwell,72,False,False,838
+587,890,72,North Ave & California,72,False,False,839
+588,929,72,North Ave & Larrabee,72,False,False,840
+589,942,72,North Ave & Wood,72,False,False,841
+590,14428,72,North Ave & Clybourn/Halsted (Red Line),72,False,False,842
+591,16101,72,North Ave & Kildare,72,False,False,843
+592,971,72,North Ave & Kostner/Grand,72,False,False,844
+593,18477,72,North Ave & Kolmar,72,False,False,845
+594,974,72,North Ave & Kilpatrick,72,False,False,846
+595,854,72,North Ave & Ridgeland,72,False,False,847
+596,856,72,North Ave & Lombard,72,False,False,848
+597,857,72,North Ave & Taylor,72,False,False,849
+598,16035,72,North Ave & Austin,72,False,False,850
+599,17921,72,North Ave & Mayfield,72,False,False,851
+600,860,72,North Ave & Menard,72,False,False,852
+601,861,72,North Ave & Major,72,False,False,853
+602,15011,72,North Ave & Central,72,False,False,854
+603,968,72,North Ave & Keeler,72,False,False,855
+604,863,72,North Ave & Linder,72,False,False,856
+605,866,72,North Ave & Laramie,72,False,False,857
+606,867,72,North Ave & Leclaire,72,False,False,858
+607,868,72,North Ave & Lavergne,72,False,False,859
+608,15484,72,North Ave & Lamon,72,False,False,860
+609,846,72,North Ave & Forest,72,False,False,861
+610,847,72,North Ave & Kenilworth,72,False,False,862
+611,848,72,North Ave & Oak Park,72,False,False,863
+612,849,72,North Ave & Linden,72,False,False,864
+613,850,72,North Ave & East,72,False,False,865
+614,851,72,North Ave & Elmwood,72,False,False,866
+615,852,72,North Ave & Narragansett,72,False,False,867
+616,16142,72,North Ave & Orchard,72,False,False,868
+617,865,72,North Ave & Lockwood,72,False,False,869
+618,967,72,North Ave & Karlov,72,False,False,870
+619,864,72,North Ave & Long,72,False,False,871
+620,965,72,North Ave & Springfield,72,False,False,872
+621,17439,72,North Ave & Pulaski,72,False,False,873
+622,934,72,North Ave & Kingsbury,72,False,False,874
+623,17127,72,North Ave & Throop,72,False,False,875
+624,15397,72,North Ave & Elston,72,False,False,876
+625,939,72,North Ave & Bosworth,72,False,False,877
+626,17000,72,North Ave & Ashland,72,False,False,878
+627,941,72,North Ave & Paulina,72,False,False,879
+628,943,72,North Ave & Wolcott,72,False,False,880
+629,945,72,North Ave & Milwaukee/Damen (Blue Line),72,False,False,881
+630,946,72,North Ave & Hoyne,72,False,False,882
+631,947,72,North Ave & Leavitt,72,False,False,883
+632,949,72,North Ave & Western,72,False,False,884
+633,948,72,North Ave & Oakley,72,False,False,885
+634,951,72,North Ave & Rockwell,72,False,False,886
+635,964,72,North Ave & Hamlin,72,False,False,887
+636,963,72,North Ave & Lawndale,72,False,False,888
+637,18481,72,North Ave & Central Park,72,False,False,889
+638,14832,72,North Ave & Kimball/Homan,72,False,False,890
+639,959,72,North Ave & Spaulding,72,False,False,891
+640,950,72,North Ave & Campbell,72,False,False,892
+641,957,72,North Ave & Albany,72,False,False,893
+642,17130,72,North Ave & Kedzie,72,False,False,894
+643,17129,72,North Ave & Humboldt,72,False,False,895
+644,954,72,North Ave & Francisco,72,False,False,896
+645,17128,72,North Ave & California,72,False,False,897
+646,952,72,North Ave & Washtenaw,72,False,False,898
+647,933,72,North Ave & Fremont,72,False,False,899
+648,4085,73,Armitage & Cleveland,73,False,False,900
+649,1906,73,Clark & Wisconsin,73,False,False,901
+650,13180,73,Armitage & Clark,73,False,False,902
+651,1451,73,Clark & LaSalle,73,False,False,903
+652,4084,73,Armitage & Lincoln/Sedgwick,73,False,False,904
+653,1905,73,Clark & Lincoln,73,False,False,905
+654,4091,73,Armitage & Seminary,73,False,False,906
+655,4087,73,Armitage & Orchard,73,False,False,907
+656,4088,73,Armitage & Halsted,73,False,False,908
+657,4089,73,Armitage & Fremont,73,False,False,909
+658,18064,73,Armitage Station (Brown Line),73,False,False,910
+659,15417,73,Clark & North,73,False,True,911
+660,4092,73,Racine & Clybourn/Cortland,73,False,False,912
+661,4086,73,Armitage & Larrabee,73,False,False,913
+662,15276,73,North Ave & LaSalle,73,False,False,914
+663,4074,73,Racine & Maud,73,False,False,915
+664,1409,73,Clark & Menomonee,73,False,False,916
+665,4093,73,Cortland & Kingsbury,73,False,False,917
+666,4071,73,Cortland & Elston,73,False,False,918
+667,4072,73,Cortland & Southport,73,False,False,919
+668,4073,73,Cortland & Kingsbury,73,False,False,920
+669,4075,73,Armitage & Seminary,73,False,False,921
+670,17785,73,Armitage Station (Brown Line),73,False,False,922
+671,1410,73,LaSalle & Eugenie,73,False,False,923
+672,4077,73,Armitage & Fremont,73,False,False,924
+673,4079,73,Armitage & Orchard,73,False,False,925
+674,4080,73,Armitage & Larrabee,73,False,False,926
+675,4081,73,Armitage & Cleveland,73,False,False,927
+676,4082,73,Armitage & Lincoln/Sedgwick,73,False,False,928
+677,1405,73,Armitage & Clark,73,False,False,929
+678,1843,73,Clark & Wisconsin,73,False,False,930
+679,4078,73,Armitage & Halsted,73,False,False,931
+680,4094,73,Cortland & Southport,73,False,False,932
+681,4125,73,Armitage & Pulaski,73,False,False,933
+682,4096,73,Clybourn Metra Station,73,False,False,934
+683,14830,73,Armitage & Kimball,73,False,False,935
+684,4120,73,Armitage & Drake,73,False,False,936
+685,4121,73,Armitage & Central Park,73,False,False,937
+686,15130,73,Armitage & Lawndale,73,False,False,938
+687,4122,73,Armitage & Ridgeway,73,False,False,939
+688,15190,73,Armitage & Avers,73,False,False,940
+689,4117,73,Armitage & Spaulding,73,False,False,941
+690,4124,73,Armitage & Springfield,73,False,False,942
+691,4126,73,Armitage & Karlov,73,False,False,943
+692,4127,73,Armitage & Keeler,73,False,False,944
+693,4128,73,Armitage & Kildare,73,False,False,945
+694,4129,73,Armitage & Kostner,73,False,False,946
+695,4130,73,Armitage & Kilbourn,73,False,False,947
+696,4131,73,Armitage & Kolmar,73,False,False,948
+697,4070,73,Cortland & Ashland,73,False,False,949
+698,4095,73,Cortland & Elston,73,False,False,950
+699,4116,73,Armitage & Sawyer,73,False,False,951
+700,4114,73,Armitage & Albany,73,False,False,952
+701,4098,73,Cortland & Hermitage,73,False,False,953
+702,4099,73,Armitage & Wood,73,False,False,954
+703,4100,73,Armitage & Wolcott,73,False,False,955
+704,4101,73,Armitage & Damen,73,False,False,956
+705,4102,73,Armitage & Hoyne,73,False,False,957
+706,4103,73,Armitage & Leavitt,73,False,False,958
+707,4115,73,Armitage & Kedzie,73,False,False,959
+708,4104,73,Armitage & Oakley,73,False,False,960
+709,4106,73,Armitage & Milwaukee,73,False,False,961
+710,15390,73,Armitage & Rockwell,73,False,False,962
+711,4109,73,Armitage & Washtenaw,73,False,False,963
+712,4110,73,Armitage & California,73,False,False,964
+713,4111,73,Armitage & Francisco,73,False,False,965
+714,4113,73,Armitage & Humboldt,73,False,False,966
+715,4105,73,Armitage & Western,73,False,False,967
+716,4068,73,Cortland & Hermitage,73,False,False,968
+717,15221,73,Armitage & Kostner,73,False,False,969
+718,4066,73,Armitage & Wood,73,False,False,970
+719,4038,73,Armitage & Keeler,73,False,False,971
+720,4037,73,Armitage & Kildare,73,False,False,972
+721,4035,73,Armitage & Kilbourn,73,False,False,973
+722,4034,73,Armitage & Kolmar,73,False,False,974
+723,4033,73,4600 W Armitage,73,False,False,975
+724,4032,73,Armitage & Kilpatrick,73,False,False,976
+725,4031,73,Armitage & Cicero,73,False,False,977
+726,4030,73,Armitage & Lacrosse,73,False,False,978
+727,4029,73,Armitage & Lamon,73,False,False,979
+728,4039,73,Armitage & Karlov,73,False,False,980
+729,4028,73,Armitage & Lavergne,73,False,False,981
+730,689,73,Grand & Laramie,73,False,False,982
+731,14179,73,Grand & Latrobe Terminal,73,True,False,983
+732,4134,73,Armitage & Cicero,73,False,False,984
+733,4135,73,Armitage & Lacrosse,73,False,False,985
+734,4136,73,Armitage & Laporte,73,False,False,986
+735,4137,73,Armitage & Lavergne,73,False,False,987
+736,4138,73,Armitage & Leclaire/Grand,73,False,False,988
+737,3883,73,Grand & Laramie,73,False,False,989
+738,4132,73,4600 W Armitage,73,False,False,990
+739,4067,73,Armitage & Hermitage,73,False,False,991
+740,4040,73,Armitage & Pulaski,73,False,False,992
+741,4027,73,Armitage & Leclaire/Grand,73,False,False,993
+742,4042,73,Armitage & Hamlin,73,False,False,994
+743,4065,73,Armitage & Wolcott,73,False,False,995
+744,4041,73,Armitage & Springfield,73,False,False,996
+745,15220,73,Armitage & Damen,73,False,False,997
+746,4063,73,Armitage & Hoyne,73,False,False,998
+747,4062,73,Armitage & Leavitt,73,False,False,999
+748,4061,73,Armitage & Oakley,73,False,False,1000
+749,4060,73,Armitage & Western,73,False,False,1001
+750,4059,73,Armitage & Milwaukee,73,False,False,1002
+751,4057,73,Armitage & Rockwell,73,False,False,1003
+752,4056,73,Armitage & Washtenaw,73,False,False,1004
+753,4133,73,Armitage & Kilpatrick,73,False,False,1005
+754,4054,73,Armitage & Francisco,73,False,False,1006
+755,4053,73,Armitage & Humboldt,73,False,False,1007
+756,4051,73,Armitage & Albany,73,False,False,1008
+757,15254,73,Armitage & Kedzie,73,False,False,1009
+758,4049,73,Armitage & Sawyer,73,False,False,1010
+759,4048,73,Armitage & Spaulding,73,False,False,1011
+760,4047,73,Armitage & Kimball,73,False,False,1012
+761,15333,73,Armitage & Drake,73,False,False,1013
+762,4043,73,Armitage & Lawndale,73,False,False,1014
+763,4055,73,Armitage & California,73,False,False,1015
+764,4044,73,Armitage & Central Park,73,False,False,1016
+765,1233,74,Fullerton & Riverfront Mall (1800 W),74,False,False,1017
+766,15232,74,Fullerton & Ashland,74,False,False,1018
+767,18319,74,Fullerton & Greenview,74,False,False,1019
+768,17922,74,Fullerton & Seminary,74,False,False,1020
+769,1228,74,Fullerton & Surrey Court,74,False,False,1021
+770,1227,74,Fullerton & Racine,74,False,False,1022
+771,18347,74,Fullerton & Elston,74,False,False,1023
+772,1225,74,Fullerton Red/Brown/Purple Line Station,74,False,False,1024
+773,17253,74,Fullerton & Southport,74,False,False,1025
+774,1236,74,Fullerton & Damen,74,False,False,1026
+775,1242,74,Fullerton & Washtenaw,74,False,False,1027
+776,18086,74,Fullerton & Western,74,False,False,1028
+777,1240,74,Fullerton & Campbell,74,False,False,1029
+778,1241,74,Fullerton & Rockwell,74,False,False,1030
+779,1243,74,Fullerton & California,74,False,False,1031
+780,14589,74,Fullerton & Milwaukee,74,False,False,1032
+781,1246,74,Fullerton & Albany,74,False,False,1033
+782,1248,74,Fullerton & Kedzie,74,False,False,1034
+783,1249,74,Fullerton & Spaulding,74,False,False,1035
+784,1251,74,Fullerton & St. Louis,74,False,False,1036
+785,1252,74,Fullerton & Central Park,74,False,False,1037
+786,1253,74,Fullerton & Lawndale,74,False,False,1038
+787,1238,74,Fullerton & Oakley,74,False,False,1039
+788,1250,74,Fullerton & Kimball,74,False,False,1040
+789,1277,74,Fullerton & Marmora,74,False,False,1041
+790,842,74,Grand & New England,74,False,False,1042
+791,1307,74,Fullerton & Kilpatrick,74,False,False,1043
+792,1308,74,Fullerton & Kenton,74,False,False,1044
+793,1309,74,Fullerton & Kilbourn,74,False,False,1045
+794,1310,74,Fullerton & Kostner,74,False,False,1046
+795,1311,74,Fullerton & Kildare,74,False,False,1047
+796,1312,74,Fullerton & Tripp,74,False,False,1048
+797,1313,74,Fullerton & Keeler,74,False,False,1049
+798,1314,74,Fullerton & Karlov,74,False,False,1050
+799,1315,74,Fullerton & Pulaski,74,False,False,1051
+800,1316,74,Fullerton & Springfield,74,False,False,1052
+801,1317,74,Fullerton & Hamlin,74,False,False,1053
+802,1319,74,Fullerton & Lawndale,74,False,False,1054
+803,1320,74,Fullerton & Central Park,74,False,False,1055
+804,1321,74,Fullerton & St. Louis,74,False,False,1056
+805,1322,74,Fullerton & Kimball,74,False,False,1057
+806,1323,74,Fullerton & Spaulding,74,False,False,1058
+807,1324,74,Fullerton & Kedzie,74,False,False,1059
+808,1326,74,Fullerton & Albany,74,False,False,1060
+809,1327,74,Fullerton & Sacramento,74,False,False,1061
+810,14590,74,Fullerton & Milwaukee,74,False,False,1062
+811,1329,74,Fullerton & California,74,False,False,1063
+812,1306,74,Fullerton & Cicero,74,False,False,1064
+813,1305,74,Fullerton & Lamon,74,False,False,1065
+814,1304,74,Fullerton & Lavergne,74,False,False,1066
+815,1303,74,Fullerton & Leclaire,74,False,False,1067
+816,1255,74,Fullerton & Hamlin,74,False,False,1068
+817,668,74,Grand & Nordica Terminal,74,True,False,1069
+818,669,74,Grand & Sayre,74,False,False,1070
+819,670,74,Grand & Newland,74,False,False,1071
+820,671,74,Grand & Newcastle,74,False,False,1072
+821,672,74,Grand & Oak Park,74,False,False,1073
+822,17567,74,Grand & Normandy,74,False,False,1074
+823,15516,74,Fullerton & Grand,74,False,False,1075
+824,1286,74,6450 W Fullerton,74,False,False,1076
+825,15257,74,Fullerton & Narragansett,74,False,False,1077
+826,1330,74,Fullerton & Washtenaw,74,False,False,1078
+827,1291,74,Fullerton & Mobile,74,False,False,1079
+828,1293,74,Fullerton & Meade,74,False,False,1080
+829,844,74,Grand & Sayre,74,False,False,1081
+830,1295,74,Fullerton & Marmora,74,False,False,1082
+831,1296,74,Fullerton & Menard,74,False,False,1083
+832,1297,74,Fullerton & Major,74,False,False,1084
+833,14812,74,Fullerton & Central,74,False,False,1085
+834,1299,74,Fullerton & Linder,74,False,False,1086
+835,15844,74,Fullerton & Long,74,False,False,1087
+836,1301,74,Fullerton & Lockwood,74,False,False,1088
+837,1302,74,Fullerton & Laramie,74,False,False,1089
+838,1292,74,Fullerton & Melvina,74,False,False,1090
+839,18088,74,Fullerton & Rockwell,74,False,False,1091
+840,1294,74,Fullerton & Austin,74,False,False,1092
+841,1333,74,Fullerton & Western,74,False,False,1093
+842,1265,74,Fullerton & Kilpatrick,74,False,False,1094
+843,15207,74,Fullerton & Cicero,74,False,False,1095
+844,1267,74,Fullerton & Lamon,74,False,False,1096
+845,15986,74,Fullerton & Lavergne,74,False,False,1097
+846,1269,74,Fullerton & Leclaire,74,False,False,1098
+847,1270,74,Fullerton & Laramie,74,False,False,1099
+848,1271,74,Fullerton & Lockwood,74,False,False,1100
+849,1272,74,Fullerton & Long,74,False,False,1101
+850,1273,74,Fullerton & Linder,74,False,False,1102
+851,17403,74,Fullerton & Central,74,False,False,1103
+852,1264,74,Fullerton & Kenton,74,False,False,1104
+853,1275,74,Fullerton & Major,74,False,False,1105
+854,1278,74,Fullerton & Austin,74,False,False,1106
+855,1279,74,Fullerton & Meade,74,False,False,1107
+856,1280,74,Fullerton & Melvina,74,False,False,1108
+857,1281,74,Fullerton & Mobile,74,False,False,1109
+858,1282,74,Fullerton & Narragansett,74,False,False,1110
+859,1283,74,6450 W Fullerton,74,False,False,1111
+860,15517,74,Fullerton & Grand,74,False,False,1112
+861,840,74,Grand & Normandy,74,False,False,1113
+862,1332,74,Fullerton & Campbell,74,False,False,1114
+863,14809,74,Grand & Oak Park,74,False,False,1115
+864,15462,74,Fullerton & Menard,74,False,False,1116
+865,1263,74,Fullerton & Kilbourn,74,False,False,1117
+866,1256,74,Fullerton & Springfield,74,False,False,1118
+867,1261,74,Fullerton & Kildare,74,False,False,1119
+868,18348,74,Fullerton & Damen,74,False,False,1120
+869,1262,74,Fullerton & Kostner,74,False,False,1121
+870,1334,74,Fullerton & Oakley,74,False,False,1122
+871,1339,74,Fullerton & Wood,74,False,False,1123
+872,17254,74,Fullerton & Ashland,74,False,False,1124
+873,18306,74,Fullerton & Greenview,74,False,False,1125
+874,18305,74,Fullerton & Southport,74,False,False,1126
+875,17923,74,Fullerton & Lakewood,74,False,False,1127
+876,1345,74,Fullerton & Racine,74,False,False,1128
+877,1346,74,Fullerton & Seminary,74,False,False,1129
+878,6597,74,Fullerton & Sheffield (Red/Brown/Purple Line),74,False,False,1130
+879,1340,74,Fullerton & Clybourn,74,False,False,1131
+880,1349,74,Halsted & Belden,74,False,False,1132
+881,1350,74,Webster & Halsted,74,False,False,1133
+882,1351,74,Webster & Orchard,74,False,False,1134
+883,1352,74,Lincoln & Webster,74,False,False,1135
+884,1353,74,Lincoln & Belden/Orchard,74,False,False,1136
+885,1224,74,Fullerton & Halsted,74,False,True,1137
+886,1257,74,Fullerton & Pulaski,74,False,False,1138
+887,1260,74,Fullerton & Tripp,74,False,False,1139
+888,1348,74,Fullerton & Halsted/Lincoln,74,False,False,1140
+889,1259,74,Fullerton & Keeler,74,False,False,1141
+890,1258,74,Fullerton & Karlov,74,False,False,1142
+891,8379,490,Western & Madison,X49,False,False,1143
+892,8385,490,Western & Grand,X49,False,False,1144
+893,8388,490,Western & Chicago,X49,False,False,1145
+894,8391,490,Western & Division,X49,False,False,1146
+895,17404,490,Western & North Ave,X49,False,False,1147
+896,8417,490,Western & Addison,X49,False,False,1148
+897,18330,490,Western & Elston/Diversey,X49,False,False,1149
+898,17346,490,Western & Belmont/Clybourn,X49,False,False,1150
+899,18431,490,Western & Irving Park,X49,False,False,1151
+900,14584,490,Western & Montrose,X49,False,False,1152
+901,18155,490,Western Brown Line Station,X49,False,False,1153
+902,14592,490,Western & Lawrence,X49,False,False,1154
+903,17890,490,Western & Van Buren (Blue Line),X49,False,False,1155
+904,17914,490,Western Blue Line Station,X49,False,False,1156
+905,8373,490,Western & Harrison,X49,False,False,1157
+906,4162,490,Western & 51st Street,X49,False,False,1158
+907,15091,490,Western & 16th Street,X49,False,False,1159
+908,8307,490,79th & Western Terminal,X49,True,False,1160
+909,14577,490,Western & 74th Street,X49,False,False,1161
+910,8317,490,Western & 69th Street,X49,False,False,1162
+911,8319,490,Western & Marquette Rd,X49,False,False,1163
+912,8323,490,Western & 63rd Street,X49,False,False,1164
+913,14795,490,Western & 59th Street,X49,False,False,1165
+914,8331,490,Western & Garfield,X49,False,False,1166
+915,14129,490,Western Orange Line Station,X49,False,False,1167
+916,8339,490,Western & 47th Street,X49,False,False,1168
+917,14579,490,Western & 43rd Street,X49,False,False,1169
+918,14580,490,Western & Archer,X49,False,False,1170
+919,8350,490,Western & 35th Street,X49,False,False,1171
+920,8356,490,Western & 26th Street,X49,False,False,1172
+921,8360,490,Western & Cermak,X49,False,False,1173
+922,8362,490,Western Pink Line Station,X49,False,False,1174
+923,6681,490,Western & Roosevelt,X49,False,False,1175
+924,14527,490,Western & Foster,X49,False,False,1176
+925,8214,490,Western & Cortland (Blue Line),X49,False,False,1177
+926,18311,490,Western & Foster,X49,False,False,1178
+927,15059,490,Western Pink Line Station,X49,False,False,1179
+928,14555,490,Western & Cermak,X49,False,False,1180
+929,8264,490,Western & 35th Street,X49,False,False,1181
+930,16085,490,Western & Archer,X49,False,False,1182
+931,8271,490,Western & 43rd Street,X49,False,False,1183
+932,8275,490,Western & 47th Street,X49,False,False,1184
+933,14531,490,Western & 16th Street,X49,False,False,1185
+934,14132,490,Western Orange Line Station,X49,False,False,1186
+935,8283,490,Western & 55th Street/Garfield,X49,False,False,1187
+936,14578,490,Western & 59th Street,X49,False,False,1188
+937,14576,490,Western & 63rd Street,X49,False,False,1189
+938,14823,490,Western & Marquette Rd,X49,False,False,1190
+939,8297,490,Western & 69th Street,X49,False,False,1191
+940,8302,490,Western & Columbus,X49,False,False,1192
+941,8279,490,Western & 51st Street,X49,False,False,1193
+942,14182,490,Western & Berwyn Terminal,X49,False,True,1194
+943,14554,490,Western & Roosevelt,X49,False,False,1195
+944,8239,490,Western Blue Line Station,X49,False,False,1196
+945,14591,490,Western & Lawrence,X49,False,False,1197
+946,8184,490,Western & Leland (Brown Line),X49,False,False,1198
+947,8187,490,Western & Montrose,X49,False,False,1199
+948,14964,490,Western & Irving Park,X49,False,False,1200
+949,8195,490,Western & Addison,X49,False,False,1201
+950,18331,490,Western & Belmont,X49,False,False,1202
+951,14769,490,Western & Harrison,X49,False,False,1203
+952,14585,490,Western & Elston/Diversey,X49,False,False,1204
+953,14581,490,Western & North Ave,X49,False,False,1205
+954,8221,490,Western & Division,X49,False,False,1206
+955,8225,490,Western & Chicago,X49,False,False,1207
+956,8228,490,Western & Grand,X49,False,False,1208
+957,14546,490,Western & Madison,X49,False,False,1209
+958,18298,490,Western & Jackson,X49,False,False,1210
+959,8207,490,Western & Fullerton,X49,False,False,1211
+960,8257,490,Western & 26th Street,X49,False,False,1212

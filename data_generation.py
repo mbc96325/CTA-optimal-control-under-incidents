@@ -62,7 +62,7 @@ if __name__ == '__main__':
     schedule_rail.loc[(schedule_rail.line_id==3) | (schedule_rail.line_id==7), 'direction_id']=0
 
     #station
-    station_sequence=schedule_rail.loc[:,['service_id','stop_id','stop_sequence','parent_station',
+    station_sequence=schedule_rail.loc[:,['service_id','stop_id','stop_sequence','parent_station','stop_name',
                                           'route_id','direction_id','line_id']].drop_duplicates()
 
 
@@ -144,10 +144,12 @@ if __name__ == '__main__':
 
 
     #arrival_time
+    schedule_rail['new_sequence']=schedule_rail['new_sequence'].astype(int)
     arrivals=pd.pivot(schedule_rail,index='trip_id',columns='new_sequence',values='arrival_time')
     arrivals=arrivals.drop(columns=[1])
 
     arrivals.to_csv('data/arrivalTime.csv',index=False,header=False)
+    arrivals.to_csv('intermediate_data/arrivalTime.csv', index=False, header=True)
 
     #arrival_stations
     arrival_stations=schedule_rail.merge(encode_part2[['stop_id','line_id','station_id']],
@@ -162,6 +164,8 @@ if __name__ == '__main__':
     arrival_station_id=arrival_station_id.drop(columns=[1])
 
     arrival_station_id.to_csv('data/arrivalStationID.csv',index=False,header=False)
+    arrival_station_id.to_csv('intermediate_data/arrivalStationID.csv',index=False,header=True)
+
 
     #start train info
     start_stations=schedule_rail.loc[schedule_rail.new_sequence==1].sort_values(['trip_id'])
@@ -201,6 +205,8 @@ if __name__ == '__main__':
 
     start_stations.loc[:,['trip_id','station_id','line_id','direction_id','capacity','departure_time']]\
         .to_csv('data/startTrainInfo.csv',index=False,header=False)
+    start_stations.loc[:, ['trip_id', 'station_id', 'line_id', 'direction_id', 'capacity', 'departure_time']] \
+        .to_csv('intermediate_data/startTrainInfo.csv', index=False, header=True)
 
 
     #transfer time
@@ -299,6 +305,7 @@ if __name__ == '__main__':
     transfer_time=pd.pivot(transfer_link,index='from_station_id',columns='to_station_id',values='time')
     transfer_time=transfer_time.fillna(-1)
     transfer_time.to_csv('data/transferTime.csv',index=False,header=False)
+    transfer_link.to_csv('intermediate_data/rail_transfer_link.csv',index=False,header=True)
 
     #link regenerate
     schedule_rail = schedule_rail.merge(encode_part2[['stop_id', 'line_id', 'station_id']],
@@ -354,6 +361,8 @@ if __name__ == '__main__':
     # encoded_link = encoded_link.rename(columns={'station_id_y': 'to_station_id','travel_time':'time'})
     #
     link_info.loc[:,['link_start','link_end','direction_id']].to_csv('data/directions.csv',index=False,header=False)
+    link_info.loc[:,['link_start','link_end','direction_id']].to_csv('intermediate_data/directions.csv',index=False,header=True)
+
 
     #check encoded station sequence
     encoded_sequence=station_sequence.merge(encode_part2[['stop_id', 'line_id', 'station_id']],
@@ -368,6 +377,9 @@ if __name__ == '__main__':
     edges=pd.concat([encoded_link.loc[:,['from_station_id','to_station_id','time']],
                      transfer_link.loc[transfer_link.time!=-1]]).sort_values(['from_station_id','to_station_id'])
     G=nx.from_pandas_edgelist(edges,'from_station_id','to_station_id','time', create_using=nx.DiGraph())
+
+    #####intermediate data
+    edges.to_csv('intermediate_data/rail_link.csv', index=False, header=True)
 
     #shortest path
     paths=nx.shortest_path(G,weight='time')
