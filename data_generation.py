@@ -417,11 +417,13 @@ if __name__ == '__main__':
     policy_num.to_csv('data/policy_num.csv',index=False,header=False)
 
     #fixed OD
-    ODX=pd.read_csv("2019_Oct_10_odx.csv",sep=',',header=0)
+    ODX=pd.read_csv("2019-10-10-ODX.csv",sep=',',header=0)
 
     #check type, format
-    ODX['boarding_stop']=ODX['boarding_stop'].astype(str)
-    ODX=ODX[ODX['boarding_stop'].str.len()==5]
+    ODX=ODX.rename(columns={'inferred_alighting_gtfs_id':'alighting_stop','transaction_dtm':'time'})
+    ODX=ODX[(~ODX['boarding_stop'].isna()) & (~ODX['alighting_stop'].isna())]
+    #ODX['boarding_stop']=ODX['boarding_stop'].astype(str)
+    #ODX=ODX[(ODX['boarding_stop'].str.len()==5)]
     ODX['boarding_stop']=ODX['boarding_stop'].astype(int)
     ODX=ODX[(ODX['boarding_stop']>=30000)&(ODX['boarding_stop']<50000)
             &(ODX['alighting_stop']>=30000)&(ODX['alighting_stop']<50000)]
@@ -479,7 +481,7 @@ if __name__ == '__main__':
     OD=OD.merge(ODX_trim[['from_parent','to_stop','from','to','time']],on=['from_parent','to_stop','time'])
     OD=OD.sort_values(['time'])
 
-    #OD[['from','to','group_size','time']].to_csv('data/fixedOD.csv',index=False,header=False)
+    OD[['from','to','group_size','time']].to_csv('data/fixedOD.csv',index=False,header=False)
 
     #stations.to_csv("check_stations.csv")
 
