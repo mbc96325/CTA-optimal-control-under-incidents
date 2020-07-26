@@ -32,7 +32,7 @@ extern "C" {
 	// the report data will be printed.
 	_declspec(dllexport) void runSim() {
 		report = Sim.run();
-		report.show();
+		//report.show();
 	}
 
 	// functions to get the data from last report point when the
@@ -64,6 +64,10 @@ extern "C" {
 	_declspec(dllexport) void addSuspend(double suspendTime) {
 		Event newSuspend(suspendTime, SUSPEND);
 		Sim.addEvent(newSuspend);
+	}
+
+	_declspec(dllexport) double getTime() {
+		return Sim.getTime();
 	}
 
 	_declspec(dllexport) void addOD(double time, int from, int to, int num) {

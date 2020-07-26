@@ -10,9 +10,9 @@
 
 #define TOTAL_STATIONS 252	// 最好改成class成员变量，在init中初始化
 #define DEFAULT_CAPACITY 500
+#define START_TIME 18000	// not add passengers into the system until 5:00
 #define WARMUP_PERIOD 0
-#define TOTAL_SIMULATION_TIME 91000
-#define MAX_TRANSFER 8
+#define SIMULATION_END_TIME 64800
 #define MAX_POLICY_NUM 1	// the largest possible num of optimal policy from station i to station j
 
 // declaration
@@ -180,7 +180,7 @@ public:
 	double getStationDelay(int stationID, int direction);
 	int getStationPass(int stationID, int direction);
 	int getStationWaitingPassengers(int stationID, int direction);
-
+	double getTime();
 	
 
 protected:

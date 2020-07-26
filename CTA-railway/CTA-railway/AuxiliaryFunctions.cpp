@@ -13,6 +13,8 @@ int Simulation::getNextStation(int from, int to, int lineID) {
 	// choose the peak/off-peak hour matrix
 	int** _policy_num = policy_num;
 	int*** _policy = policy_offpeak;
+	if ((time >= 19080 && time <= 33900) || (time >= 51900 && time <= 66600))	// peak hour
+		_policy = policy;
 
 	int num = _policy_num[from][to];
 	int nextStation;
@@ -106,7 +108,7 @@ bool Simulation::trainEnd(int trainID) {
 // an inner function to arrange all the information needed in the RL model
 Report Simulation::report() {
 	Report result;
-	if (time < TOTAL_SIMULATION_TIME)
+	if (time < SIMULATION_END_TIME)
 		result.isFinished = false;
 	else
 		result.isFinished = true;
@@ -131,6 +133,10 @@ int Simulation::getStationWaitingPassengers(int stationID, int direction) {
 	return stations[stationID].queueSize[direction];
 }
 
+double Simulation::getTime() {
+	return time;
+}
+
 // the function of Report
 void Report::show() {
 	if (isFinished)
@@ -138,8 +144,8 @@ void Report::show() {
 	else
 		cout << "isFinished:\t\t\t" << "FALSE" << "\n";
 	cout << "totalTravelTime (h):\t\t" << totalTravelTime/3600.0 << "\n";
-	cout << "totalDelay (h):\t\t" << totalDelay/3600.0 << "\n";
-	cout << "# passenger departed:\t" << numDeparted << "\n";
+	cout << "totalDelay (h):\t\t\t" << totalDelay/3600.0 << "\n";
+	cout << "# passenger departed:\t\t" << numDeparted << "\n";
 	cout << "# passenger arrived:\t\t" << numArrived << "\n";
 	cout << "average travel time (min):\t" << totalTravelTime / double(numDeparted * 60) << endl;
 }

@@ -180,8 +180,8 @@ Report Simulation::run() {
 					double transfer_time = 0.0;
 					int real_station = getRealStation(nextevent.from, nextevent.to, transfer_time);
 
-					// a. directly add to the queue
-					if (real_station == nextevent.from) {
+					// a. directly add to the queue, if past the START_TIME
+					if (real_station == nextevent.from && time >= START_TIME) {
 						addPassengers(nextevent.from, nextevent.to, nextevent.num);
 						if (!nextevent.isTransfer)
 							num_departed += nextevent.num;
@@ -206,7 +206,7 @@ Report Simulation::run() {
 
 		_last_time = time;
 
-	} while (time < TOTAL_SIMULATION_TIME);
+	} while (time < SIMULATION_END_TIME);
 
 	// when time is up
 	return report();
