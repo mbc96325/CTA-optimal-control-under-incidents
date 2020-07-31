@@ -3,6 +3,7 @@ from ctypes import *
 import csv
 import copy
 from queue import PriorityQueue
+import random
 
 # properties of agent entities
 class Agent(object):
@@ -11,7 +12,7 @@ class Agent(object):
         self.queueSize = 0
         self.future_queue = None
         self.current_queue = None
-        self.temp_queue = None
+        # self.temp_queue = None
         self.waitingTime = 0
 
 # Passengers waiting outside the stations
@@ -43,10 +44,20 @@ class World(object):
         self.Sim = WinDLL("CTA-railway.dll")
         initAPI(self.Sim)   # activate the APIs
 
-        # here to load the OD for the controlled stations
+        # here to load the OD for the controlled stations and store in the memory
         self.Queue36 = loadODQueue("./data/station36.csv")
         self.Queue37 = loadODQueue("./data/station37.csv")
         self.Queue41 = loadODQueue("./data/station41.csv")
+
+        # some parameters
+        self.using_bus_prop = 0.2
+        self.using_taxi_prop = 0.2
+        self.in_vehicle_time_factor = 0.121
+        self.waiting_on_platform_factor = 0.299
+        self.platform_crowding_risk_factor = 1.0
+        self.waiting_outside_factor = 0.299 * 1.5
+        self.using_bus_penalty = 1.321
+        self.using_taxi_penalty = 2.0
 
     def make_world(self):
         # simulator
@@ -79,7 +90,7 @@ class World(object):
             self.agents[i].current_queue = PriorityQueue()
         
         # have the first 15 min's passengers put into the queue
-        self.current_time = self.Sim.getTime    # synchronize the time
+        self.current_time = self.Sim.getTime()    # synchronize the time
         for i in range(3):
             while not self.agents[i].future_queue.empty():
                 first_passenger = self.agents[i].future_queue.get() # this is a tuple of (int: arrivalTime, Passenger: p)
@@ -101,16 +112,58 @@ class World(object):
 
     # update state of the world
     def step(self, action_n):
+        # 1. let some passengers get into the station, some will leave
         for i, action in enumerate(action_n):# 0 - 1
             action_prop = np.argmax(action)/10
             num_LetIn = int(action_prop * self.agents[i].queueSize)
 
             # put the first num_LetIn passengers into the station
+            while num_LetIn > 0:
+                passenger = self.agents[i].current_queue.get()[1]
+                self.Sim.addOD(passenger.time, passenger.O, passenger.D, passenger.num) # here consider OD group will travel together
+                num_LetIn -= passenger.num
+                self.agents[i].queueSize -= passenger.num
 
-            # if there are passengers left, have some of them:
-            # 1. take a bus and note down the number
+            if not self.agents[i].current_queue.empty():
+                # if there are passengers left, have some of them take a bus or a taxi
+                temp_queue = PriorityQueue()
+                while not self.agents[i].current_queue.empty():
+                    p = self.agents[i].current_queue.get()
+                    r = random.random()
+                    if r <= self.using_bus_prop:
+                        # check if can take a bus
+                        # if can, turn to the bus
 
-            # 2. take a taxi and note down the number 
+                        self.agents[i].queueSize -= p[1].num
+
+                        # else, put into the temp_queue
+
+                    elif r <= self.using_bus_prop + self.using_taxi_prop:
+                        # take a taxi
+
+
+                        self.agents[i].queueSize -= p[1].num
+
+                    else:
+                        # put into the temp_queue
+                        temp_queue.put(p)
+                
+                while not temp_queue.empty():
+                    self.agents[i].current_queue.put(temp_queue.get())
+                    
+        # 2. run the simulator to the next control point
+        self.Sim.runSim()
+        self.current_time = self.Sim.getTime()
+
+        # 3. add new passengers coming during the interval
+        for i in range(len(self.agents)):
+            while not self.agents[i].future_queue.empty():
+                first_passenger = self.agents[i].future_queue.get()
+                if first_passenger[0] <= self.current_time:
+                    self.agents[i].current_queue.put(first_passenger)
+                    self.agents[i].queueSize += first_passenger[1].num
+                else:
+                    self.agents[i].future_queue.put(first_passenger)
 
     def get_cost(self):
         waiting1 = self.agents[0].current_demand - self.agents[0].allowed_demand
@@ -145,7 +198,7 @@ def initAPI(dll):
     dll.addSuspend.argtypes = [c_double]
     dll.addSuspend.restype = c_void_p
 
-    dll.addOD.argtypes = [c_double, c_int, c_int, c_int]
+    dll.addOD.argtypes = [c_double, c_int, c_int, c_int] # time, from, to, num
     dll.addOD.restype = c_void_p
 
 def loadODQueue(_file):

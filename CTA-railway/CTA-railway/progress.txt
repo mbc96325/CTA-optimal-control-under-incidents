@@ -29,3 +29,18 @@ direction用到的地方都加上-1判断
 检查delay最大的站-非紫线的问题
 检查没有人的站
 检查加上suspend后travel time变化的问题
+
+返回的信息{
+	1. in-veh time (bus + train) 
+	2. waiting time 
+	3. platform crowding * risk 
+	4. waiting outside * penalty 
+	5. using bus * penalty 
+	6. using other * penalty
+}
+
+python part{
+	1. observation
+	2. step...waiting time还没记录
+	3. getcost
+}
