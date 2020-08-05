@@ -80,6 +80,12 @@ class World(object):
             self.Sim.addSuspend(float(t))
         self.Sim.runSim()   # run to 15:15
 
+        # the cost-related data
+        # self.totalTravelTime = 0.0
+        # self.totalDelay = 0.0
+        self.totalWaitingOutsideTime = 0.0
+        self.totalBusTime = 0.0
+
         # load the OD from memory, avoid reading files frequently
         self.agents[0].future_queue = copy.deepcopy(self.Queue36)
         self.agents[1].future_queue = copy.deepcopy(self.Queue37)
@@ -112,6 +118,9 @@ class World(object):
 
     # update state of the world
     def step(self, action_n):
+        # 0. init the immediate cost
+        self.panelty = 0.0
+
         # 1. let some passengers get into the station, some will leave
         for i, action in enumerate(action_n):# 0 - 1
             action_prop = np.argmax(action)/10
@@ -131,16 +140,25 @@ class World(object):
                     p = self.agents[i].current_queue.get()
                     r = random.random()
                     if r <= self.using_bus_prop:
-                        # check if can take a bus
+                        # TODO: check if can take a bus
                         # if can, turn to the bus
+                        if self.isBusAvailable(p[1].O, p[1].D):
+                            self.totalBusTime += self.getBusTravelTime(p[1].O, p[1].D) * p[1].num
+                            if self.takeRailwayAgain(p[1].O, p[1].D):
+                                # TODO: if need to take the railway again at other stations, add here
+                                pass
 
-                        self.agents[i].queueSize -= p[1].num
+                            self.panelty = self.using_bus_penalty * p[1].num
+                            self.agents[i].queueSize -= p[1].num
 
                         # else, put into the temp_queue
+                        else:
+                            temp_queue.put(p)
 
                     elif r <= self.using_bus_prop + self.using_taxi_prop:
-                        # take a taxi
-
+                        # take a taxi, get a penalty
+                        self.panelty += self.using_taxi_penalty * p[1].num
+                        # 是否需要估计一个坐taxi的时间加进来？
 
                         self.agents[i].queueSize -= p[1].num
 
@@ -166,13 +184,38 @@ class World(object):
                     self.agents[i].future_queue.put(first_passenger)
 
     def get_cost(self):
-        waiting1 = self.agents[0].current_demand - self.agents[0].allowed_demand
-        waiting2 = self.agents[1].current_demand +  waiting1 - self.agents[1].allowed_demand
-        travel_time = (self.agents[0].allowed_demand + self.agents[1].allowed_demand)**2 + 10
-        return (travel_time + waiting1*100 + waiting2*10)*1e-5
+        """
+        return the total cost, not the immediate cost
+        """
+        # TODO: 
+        inVehicleTravelTime = self.Sim.getTotalTravelTime() - self.Sim.getTotalDelay()
+        platformWaitingTime = self.Sim.getTotalDelay()
+        OutsideStationWaitingTime = self.totalWaitingOutsideTime
+        crowdingRisk = 0.0
+        busAndTaxiPenalty = self.panelty
+
+        cost = inVehicleTravelTime * self.in_vehicle_time_factor + \
+            platformWaitingTime * self.waiting_on_platform_factor + \
+            OutsideStationWaitingTime * self.waiting_outside_factor + \
+            crowdingRisk * self.platform_crowding_risk_factor + \
+            busAndTaxiPenalty
+        
+        return cost
             
     def if_done(self):
         return self.Sim.SimIsFinished()
+
+    def isBusAvailable(self, O, D):
+        """
+        return a bool value if the passenger can take a bus from O to D
+        """
+        pass
+
+    def getBusTravelTime(self, O, D):
+        """
+        return the travel from O to D using a bus
+        """
+        pass
 
 def initAPI(dll):
     """
