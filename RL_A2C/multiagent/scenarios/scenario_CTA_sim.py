@@ -209,12 +209,21 @@ class World(object):
         """
         return a bool value if the passenger can take a bus from O to D
         """
+        return False
         pass
 
     def getBusTravelTime(self, O, D):
         """
         return the travel from O to D using a bus
         """
+        return 0
+        pass
+
+    def takeRailwayAgain(self, O, D):
+        """
+        return if the passenger will take a train again after getting off the bus
+        """
+        return False
         pass
 
 def initAPI(dll):
