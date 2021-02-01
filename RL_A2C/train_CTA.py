@@ -1,14 +1,13 @@
 import argparse
 import numpy as np
 import tensorflow as tf
+print(tf.__version__)
 import time
 import pickle
 
 import maddpg.common.tf_util as U
 from maddpg.trainer.maddpg import MADDPGAgentTrainer
 import tensorflow.contrib.layers as layers
-
-
 
 
 def parse_args():
